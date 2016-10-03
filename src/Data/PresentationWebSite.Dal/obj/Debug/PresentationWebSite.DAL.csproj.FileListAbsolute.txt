@@ -1,0 +1,10 @@
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.dll.config
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.dll
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.pdb
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.dll
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.dll
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.xml
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.xml
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.dll
+E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.pdb

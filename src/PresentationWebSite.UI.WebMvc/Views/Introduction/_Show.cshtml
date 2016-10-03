@@ -1,0 +1,26 @@
+﻿@using PresentationWebSite.UI.WebMvc.Models.Introduction
+@model IntroductionModelBase
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p />
+<div class="col-sm-3">
+    <ul class="well center-block nav nav-pills nav-stacked ">
+        <li class="btn-block @(Model.ActiveTab == IntroductionModelBase.IntroductionChildTab.Skill ? "active" : "")">
+            <a href="@Url.Action("", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_SKILLS</a>
+        </li>
+        <li class="btn-block @(Model.ActiveTab == IntroductionModelBase.IntroductionChildTab.Job ? "active" : "")">
+            <a href="@Url.Action("", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_JOBS</a>
+        </li>
+        <li class="btn-block @(Model.ActiveTab == IntroductionModelBase.IntroductionChildTab.Graduation ? "active" : "")">
+            <a href="@Url.Action("ShowGraduations", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_GRADUATIONS</a>
+        </li>
+        <li class="btn-block @(Model.ActiveTab == IntroductionModelBase.IntroductionChildTab.Hobby ? "active" : "")">
+            <a href="@Url.Action("", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_HOBBIES</a>
+        </li>
+    </ul>
+</div>
+<div class="col-sm-9 well">
+    @RenderBody()
+</div>
+

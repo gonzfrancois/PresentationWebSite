@@ -1,0 +1,90 @@
+﻿@using System.Globalization
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("François GONZALEZ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(Resources.Global.NAVBAR_MENU_HOME_HEADER, "Index", "Home")</li>
+                    <li>@Html.ActionLink(Resources.Global.NAVBAR_MENU_INTRODUCTION_HEADER, "ShowGraduations", "Introduction")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="flag flag-@CultureInfo.CurrentCulture.TwoLetterISOLanguageName"></span>
+                            @Resources.Global.NAVBAR_MENU_LANGUAGE_HEADER
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
+                                             ViewContext.RouteData.Values["controller"].ToString(),
+                                             new {lang = "fr-FR"}, null)">
+                                    <span class="flag flag-fr" alt="Fr"></span>
+                                    <span>Français</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
+                                             ViewContext.RouteData.Values["controller"].ToString(),
+                                             new {lang = "en-GB"}, null)">
+                                    <span class="flag flag-en" alt="En"></span>
+                                    <span>English</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
+                                             ViewContext.RouteData.Values["controller"].ToString(),
+                                             new {lang = "es-ES"}, null)">
+                                    <span class="flag flag-es" alt="Es"></span>
+                                    <span>Castellano</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
+                                             ViewContext.RouteData.Values["controller"].ToString(),
+                                             new {lang = "ca-ES"}, null)">
+                                    <span class="flag flag-cat" alt="Cat"></span>
+                                    <span>Català</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="navbar-fixed-bottom">
+            <p>
+                &copy; @DateTime.Now.Year - François GONZALEZ
+                @Html.Partial("_LoginPartial")
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
