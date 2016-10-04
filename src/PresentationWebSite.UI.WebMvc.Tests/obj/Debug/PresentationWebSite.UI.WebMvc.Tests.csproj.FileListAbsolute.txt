@@ -1,61 +1,60 @@
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\csc.exe
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\System.Collections.Immutable.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\System.Reflection.Metadata.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\vbc.exe
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\VBCSCompiler.exe
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.Tests.dll.config
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.Tests.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.Tests.pdb
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Newtonsoft.Json.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Helpers.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Mvc.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Razor.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Optimization.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Owin.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.Dal.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\EntityFramework.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.pdb
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Newtonsoft.Json.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Helpers.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Mvc.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Razor.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Optimization.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.Dal.pdb
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\EntityFramework.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\ca\PresentationWebSite.UI.WebMvc.resources.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\en\PresentationWebSite.UI.WebMvc.resources.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\es\PresentationWebSite.UI.WebMvc.resources.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.csprojResolveAssemblyReference.cache
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.dll
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.pdb
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.csprojResolveAssemblyReference.cache
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\csc.exe
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\System.Collections.Immutable.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\System.Reflection.Metadata.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\vbc.exe
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\VBCSCompiler.exe
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.Tests.dll.config
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.Tests.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.Tests.pdb
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Newtonsoft.Json.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Helpers.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Mvc.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Razor.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Optimization.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Owin.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\EntityFramework.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.pdb
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Newtonsoft.Json.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Helpers.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Mvc.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Razor.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\System.Web.Optimization.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\EntityFramework.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\ca\PresentationWebSite.UI.WebMvc.resources.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\en\PresentationWebSite.UI.WebMvc.resources.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\es\PresentationWebSite.UI.WebMvc.resources.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.pdb
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.Dal.dll
+c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.Dal.pdb

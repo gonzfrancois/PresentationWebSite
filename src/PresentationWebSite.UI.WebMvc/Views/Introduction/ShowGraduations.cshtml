@@ -1,19 +1,27 @@
 ﻿@using System.Globalization
+@using Microsoft.AspNet.Identity
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.GraduationsModel
 
 @{
     Layout = "~/Views/Introduction/_Show.cshtml";
 }
-@*<a href="@Url.Action("", "Introduction")">Add</a>*@
 
-@foreach (var grade in @Model.Graduations)
-{
-    <tr>
-            @{
-                var value = grade.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
-                var year = grade.ObtainingDateTime.Year;
-                <th>@value</th>
-                <th>@year</th>
-            }
-    </tr>
-}
+<ul class="list-group">
+    @foreach (var grade in @Model.Graduations.OrderByDescending(x => x.ObtainingDateTime))
+    {
+        var value = grade.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
+        var year = grade.ObtainingDateTime.Year;
+
+        <li class="list-group-item">
+            <span class="label label-default">@year</span>
+            <div>@value</div>
+        </li>
+        if (User.IsInRole("Administrator"))
+        {
+            var mvcHtmlString = Html.ActionLink("Delete", "DeleteGraduation", new { gradeId = grade.Id });
+            @mvcHtmlString
+        }
+
+    }
+    @Html.ActionLink("Add","AddGraduation")
+</ul>

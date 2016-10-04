@@ -1,0 +1,25 @@
+﻿@using System.Web.Mvc.Html
+@model PresentationWebSite.UI.WebMvc.Models.Introduction.GraduationModel
+
+@{
+    ViewBag.Title = @Model.ActiveTab;
+    Layout = "_Show.cshtml";
+}
+
+<h2>title</h2>
+@using (Html.BeginForm("AddGraduation", "Introduction", FormMethod.Post, new { id = "addGradeForm"}))
+{
+    @Html.EditorFor(m => m.ObtainingDateTime)
+    @Html.ValidationMessageFor(m => m.ObtainingDateTime)
+    @Html.EditorFor(m => m.TextKey)
+    @Html.ValidationMessageFor(m => m.TextKey)
+    foreach (var modelText in Model.Texts)
+    {
+        <div class="span4">
+            @Html.TextBoxFor(model => model.Texts[modelText.Key], new { @placeholder = modelText.Key.DisplayName })
+            @Html.ValidationMessageFor(model => model.Texts[modelText.Key])
+        </div>
+    }
+    <input type="submit"/>
+}
+        

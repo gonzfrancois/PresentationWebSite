@@ -176,6 +176,7 @@
     </Compile>
     <Compile Include="AppCode\LocalizedControllerActivator.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Introduction\GraduationModel.cs" />
     <Compile Include="Models\Introduction\GraduationsModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Introduction\IntroductionModelBase.cs" />
@@ -263,9 +264,11 @@
     <Content Include="Views\Home\Introduction.cshtml" />
     <Content Include="Views\Introduction\_Show.cshtml" />
     <Content Include="Views\Introduction\ShowGraduations.cshtml" />
+    <None Include="Views\Introduction\AddGraduation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
