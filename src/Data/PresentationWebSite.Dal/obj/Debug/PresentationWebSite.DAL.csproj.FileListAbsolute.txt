@@ -8,3 +8,13 @@ c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\Dat
 c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.csprojResolveAssemblyReference.cache
 c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.dll
 c:\users\fgonzalez\documents\visual studio 2015\Projects\PresentationWebSite\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.pdb
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.dll
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.pdb
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.dll.config
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.dll
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.pdb
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.dll
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.xml
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache

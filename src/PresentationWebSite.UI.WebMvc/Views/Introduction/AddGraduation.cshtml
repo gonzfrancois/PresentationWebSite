@@ -1,4 +1,8 @@
-﻿@using System.Web.Mvc.Html
+﻿@using System.Globalization
+@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@using PresentationWebSite.Dal.Model
+@using PresentationWebSite.UI.WebMvc.Models.Introduction
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.GraduationModel
 
 @{
@@ -6,20 +10,17 @@
     Layout = "_Show.cshtml";
 }
 
-<h2>title</h2>
-@using (Html.BeginForm("AddGraduation", "Introduction", FormMethod.Post, new { id = "addGradeForm"}))
-{
-    @Html.EditorFor(m => m.ObtainingDateTime)
-    @Html.ValidationMessageFor(m => m.ObtainingDateTime)
-    @Html.EditorFor(m => m.TextKey)
-    @Html.ValidationMessageFor(m => m.TextKey)
-    foreach (var modelText in Model.Texts)
+<h2>@Resources.Global.INTRODUCTION_ADD_GRADUATION_HEADER</h2>
+@{
+    using (Html.BeginForm("AddGraduation", "Introduction", FormMethod.Post, new { model = Model}))
     {
-        <div class="span4">
-            @Html.TextBoxFor(model => model.Texts[modelText.Key], new { @placeholder = modelText.Key.DisplayName })
-            @Html.ValidationMessageFor(model => model.Texts[modelText.Key])
-        </div>
+        @Html.EditorFor(m => m.ObtainingDateTime)
+        @Html.EditorFor(m => m.Texts, "IEnumerableText")
+        <input type="submit" value="Save"/>
     }
-    <input type="submit"/>
 }
-        
+
+
+
+
+

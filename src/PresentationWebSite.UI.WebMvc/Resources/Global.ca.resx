@@ -123,8 +123,11 @@
   <data name="APPLICATION_OWNER_NAME" xml:space="preserve">
     <value>François GONZALEZ</value>
   </data>
+  <data name="INTRODUCTION_ADD_GRADUATION_HEADER" xml:space="preserve">
+    <value>Nou grau</value>
+  </data>
   <data name="INTRODUCTION_HEADER_GRADUATIONS" xml:space="preserve">
-    <value>Diplomes</value>
+    <value>Quacificacions</value>
   </data>
   <data name="INTRODUCTION_HEADER_HOBBIES" xml:space="preserve">
     <value>Recreació</value>

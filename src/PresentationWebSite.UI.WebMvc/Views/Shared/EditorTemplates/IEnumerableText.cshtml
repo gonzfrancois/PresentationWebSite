@@ -1,0 +1,8 @@
+﻿@using System.Globalization
+@model IEnumerable<PresentationWebSite.UI.WebMvc.Models.Common.TextModel>
+
+@for (int i = 0; i < Model.Count(); i++)
+{
+    @Html.HiddenFor(m => Model.ToArray()[i].Language.Id)
+    @Html.TextBoxFor(m => Model.ToArray()[i].Value, new { placeholder = new CultureInfo(Model.ToArray()[i].Language.CultureIsoCode).DisplayName, name = "" })
+}

@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nouveau diplôme.
+        /// </summary>
+        public static string INTRODUCTION_ADD_GRADUATION_HEADER {
+            get {
+                return ResourceManager.GetString("INTRODUCTION_ADD_GRADUATION_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Diplômes.
         /// </summary>
         public static string INTRODUCTION_HEADER_GRADUATIONS {

@@ -1,0 +1,42 @@
+﻿@using System.Globalization
+@using Microsoft.AspNet.Identity
+@model PresentationWebSite.UI.WebMvc.Models.Introduction.SkillCategoriesModel
+
+@{
+    Layout = "~/Views/Introduction/_Show.cshtml";
+}
+
+<ul class="list-group">
+    @foreach (var skillCategory in @Model.Categories.OrderBy(x => x.DisplayPriority))
+    {
+        var name = skillCategory.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
+        <li>
+            @name
+            @{
+                if (User.IsInRole("Administrator"))
+                {
+                    var mvcHtmlString = Html.ActionLink("Delete", "DeleteSkillCategory", new {skillCategoryId = skillCategory.Id});
+                    @mvcHtmlString
+                }
+            }
+            <ul>
+                @{
+                    foreach (var skill in skillCategory.Skills)
+                    {
+                        var skillName = skill.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
+                        <li>
+                            <div class="container">
+                                <h2>@skillName</h2>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow=@(skill.KnowledgePercent) aria-valuemin="0" aria-valuemax="100" style="width:@(skill.KnowledgePercent)%">
+                                        <span class="sr-only">@(skill.KnowledgePercent.ToString())% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+    }
+</ul>
