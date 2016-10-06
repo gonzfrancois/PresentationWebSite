@@ -103,6 +103,107 @@ namespace PresentationWebSite.Dal
 
             context.Skills.Add(sk2A);
             context.Skills.Add(sk2B);
+
+
+            var work1Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "work1 fr"},
+                    new Text() {Language = es, Value = "work1 es"},
+                    new Text() {Language = en, Value = "work1 en"},
+                    new Text() {Language = ca, Value = "work1 ca"}
+                };
+            context.Texts.AddRange(work1Texts);
+
+            var work2Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "work2 fr"},
+                    new Text() {Language = es, Value = "work2 es"},
+                    new Text() {Language = en, Value = "work2 en"},
+                    new Text() {Language = ca, Value = "work2 ca"}
+                };
+            context.Texts.AddRange(work2Texts);
+
+            var work3Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "work3 fr"},
+                    new Text() {Language = es, Value = "work3 es"},
+                    new Text() {Language = en, Value = "work3 en"},
+                    new Text() {Language = ca, Value = "work3 ca"}
+                };
+            context.Texts.AddRange(work3Texts);
+
+            var work4Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "work4 fr"},
+                    new Text() {Language = es, Value = "work4 es"},
+                    new Text() {Language = en, Value = "work4 en"},
+                    new Text() {Language = ca, Value = "work4 ca"}
+                };
+            context.Texts.AddRange(work4Texts);
+
+            var work1 = new Work()
+            {
+                DisplayPriority = 0,
+                Texts = work1Texts
+            };
+            
+            var work2 = new Work()
+            {
+                DisplayPriority = 1,
+                Texts = work2Texts
+            };
+            
+            var work3 = new Work()
+            {
+                DisplayPriority = 2,
+                Texts = work3Texts
+            };
+            
+            var work4 = new Work()
+            {
+                DisplayPriority = 1,
+                Texts = work4Texts
+            };
+            context.Works.Add(work1);
+            context.Works.Add(work2);
+            context.Works.Add(work3);
+            context.Works.Add(work4);
+
+            var job1Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "job1 fr"},
+                    new Text() {Language = es, Value = "job1 es"},
+                    new Text() {Language = en, Value = "job1 en"},
+                    new Text() {Language = ca, Value = "job1 ca"}
+                };
+            context.Texts.AddRange(job1Texts);
+
+            var job2Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "job2 fr"},
+                    new Text() {Language = es, Value = "job2 es"},
+                    new Text() {Language = en, Value = "job2 en"},
+                    new Text() {Language = ca, Value = "job2 ca"}
+                };
+            context.Texts.AddRange(job2Texts);
+
+            var job1 = new Job()
+            {
+                StarterDate = new DateTime(2010,6,1),
+                EndDate = new DateTime(2010,8,1),
+                Works = new List<Work>() { work1,work2},
+                Texts = job1Texts
+            };
+            context.Jobs.Add(job1);
+
+            var job2 = new Job()
+            {
+                StarterDate = new DateTime(2011, 6, 1),
+                Works = new List<Work>() { work3, work4 },
+                Texts = job2Texts
+            };
+            context.Jobs.Add(job2);
+
             base.Seed(context);
         }
     }

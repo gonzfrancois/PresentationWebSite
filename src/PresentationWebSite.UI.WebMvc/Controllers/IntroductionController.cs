@@ -152,7 +152,66 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         }
         #endregion
 
+        #region Works
+        //[Authorize(Roles = "Administrator")]
+        public ActionResult DeleteWork(int workId)
+        {
+            throw new NotImplementedException();
+        }
 
+        public ActionResult EditWok(int workId)
+        {
+            throw new NotImplementedException();
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult AddWork()
+        {
+            throw new NotImplementedException();
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult AddWork(object model)
+        {
+            throw new NotImplementedException();
+        }
+        
+        #endregion
+
+        #region Jobs
+
+        public ActionResult ShowJobs()
+        {
+            return View(new JobsModel() { Jobs = _db.Jobs.ToList() });
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        public ActionResult DeleteJob(int jobId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult EditJob(int jobId)
+        {
+            throw new NotImplementedException();
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult AddJob()
+        {
+            throw new NotImplementedException();
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult AddJob(object model)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
 
     }
 

@@ -1,0 +1,30 @@
+﻿@using System.Globalization
+@model PresentationWebSite.UI.WebMvc.Models.Introduction.JobsModel
+
+@{
+    Layout = "~/Views/Introduction/_Show.cshtml";
+}
+
+<ul class="list-group">
+    @foreach (var job in @Model.Jobs.OrderByDescending(x => x.StarterDate))
+    {
+        <li>
+            <span>@(job.StarterDate.ToString("M")) - @(job.EndDate?.ToString("M"))</span>
+            <span>@(job.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</span>
+            <span>@Html.ActionLink("Delete", "DeleteJob", new { jobId = job.Id })</span>
+            <ul>
+                @{
+                    @Html.ActionLink("Add", "AddWork", new { jobId = job.Id })
+                    foreach (var work in job.Works.OrderByDescending(x => x.DisplayPriority))
+                    {
+                        <li>
+                            @(work.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                            <span>@Html.ActionLink("Delete", "DeleteWork", new { workId = work.Id })</span>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+                    }
+</ul>
+<div>@Html.ActionLink("Add", "AddJob")</div>

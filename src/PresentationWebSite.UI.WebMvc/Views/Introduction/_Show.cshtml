@@ -10,7 +10,7 @@
             <a href="@Url.Action("ShowSkills", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_SKILLS</a>
         </li>
         <li class="btn-block @(Model.ActiveTab == IntroductionModelBase.IntroductionChildTab.Job ? "active" : "")">
-            <a href="@Url.Action("", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_JOBS</a>
+            <a href="@Url.Action("ShowJobs", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_JOBS</a>
         </li>
         <li class="btn-block @(Model.ActiveTab == IntroductionModelBase.IntroductionChildTab.Graduation ? "active" : "")">
             <a href="@Url.Action("ShowGraduations", "Introduction")">@Resources.Global.INTRODUCTION_HEADER_GRADUATIONS</a>

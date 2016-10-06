@@ -182,7 +182,9 @@
     <Compile Include="Models\Introduction\GraduationModel.cs" />
     <Compile Include="Models\Introduction\GraduationsModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Introduction\Hobbies.cs" />
     <Compile Include="Models\Introduction\IntroductionModelBase.cs" />
+    <Compile Include="Models\Introduction\JobsModel.cs" />
     <Compile Include="Models\Introduction\SkillCategoriesModel.cs" />
     <Compile Include="Models\Introduction\SkillCategoryModel.cs" />
     <Compile Include="Models\Introduction\SkillModel.cs" />
@@ -275,6 +277,7 @@
     <Content Include="Views\Introduction\ShowSkills.cshtml" />
     <Content Include="Views\Introduction\AddSkillCategory.cshtml" />
     <Content Include="Views\Introduction\AddSkill.cshtml" />
+    <Content Include="Views\Introduction\ShowJobs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
