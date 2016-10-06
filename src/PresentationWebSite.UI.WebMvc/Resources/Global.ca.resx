@@ -126,6 +126,12 @@
   <data name="INTRODUCTION_ADD_GRADUATION_HEADER" xml:space="preserve">
     <value>Nou grau</value>
   </data>
+  <data name="INTRODUCTION_ADD_SKILLCATEGORY_HEADER" xml:space="preserve">
+    <value>Nova categoria</value>
+  </data>
+  <data name="INTRODUCTION_ADD_SKILL_HEADER" xml:space="preserve">
+    <value>Nou habilitat</value>
+  </data>
   <data name="INTRODUCTION_HEADER_GRADUATIONS" xml:space="preserve">
     <value>Quacificacions</value>
   </data>

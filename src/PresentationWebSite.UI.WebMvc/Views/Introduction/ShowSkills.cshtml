@@ -13,22 +13,25 @@
         <li>
             @name
             @{
-                if (User.IsInRole("Administrator"))
-                {
-                    var mvcHtmlString = Html.ActionLink("Delete", "DeleteSkillCategory", new {skillCategoryId = skillCategory.Id});
-                    @mvcHtmlString
-                }
+//if (User.IsInRole("Administrator"))
+//{
+                <span>@Html.ActionLink("Delete", "DeleteSkillCategory", new { skillCategoryId = skillCategory.Id })</span>
+                //}
             }
             <ul>
                 @{
-                    foreach (var skill in skillCategory.Skills)
+                    <span>@Html.ActionLink("Add", "AddSkill", new { skillCategoryId = skillCategory.Id })</span>
+                    foreach (var skill in skillCategory.Skills.OrderByDescending(x=>x.KnowledgePercent))
                     {
                         var skillName = skill.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
                         <li>
                             <div class="container">
-                                <h2>@skillName</h2>
+                                <h2>
+                                    @skillName
+                                    <span>@Html.ActionLink("Delete", "DeleteSkill", new { skillId = skill.Id })</span>
+                                </h2>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow=@(skill.KnowledgePercent) aria-valuemin="0" aria-valuemax="100" style="width:@(skill.KnowledgePercent)%">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@(skill.KnowledgePercent)" aria-valuemin="0" aria-valuemax="100" style="width:@(skill.KnowledgePercent)%">
                                         <span class="sr-only">@(skill.KnowledgePercent.ToString())% Complete</span>
                                     </div>
                                 </div>
@@ -38,5 +41,6 @@
                 }
             </ul>
         </li>
-    }
+                    }
 </ul>
+<div>@Html.ActionLink("Add", "AddSkillCategory")</div>

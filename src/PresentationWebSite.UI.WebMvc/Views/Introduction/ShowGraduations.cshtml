@@ -16,11 +16,11 @@
             <span class="label label-default">@year</span>
             <div>@value</div>
         </li>
-        if (User.IsInRole("Administrator"))
-        {
-            var mvcHtmlString = Html.ActionLink("Delete", "DeleteGraduation", new { gradeId = grade.Id });
+        //if (User.IsInRole("Administrator"))
+        //{
+        var mvcHtmlString = Html.ActionLink("Delete", "DeleteGraduation", new { gradeId = grade.Id });
             @mvcHtmlString
-        }
+        //}
 
     }
     @Html.ActionLink("Add","AddGraduation")

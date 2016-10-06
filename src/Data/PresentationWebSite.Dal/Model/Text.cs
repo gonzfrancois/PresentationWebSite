@@ -13,8 +13,10 @@ namespace PresentationWebSite.Dal.Model
         public string Value { get; set; }
         [Required]
         public virtual Language Language { get; set; }
+
         public virtual ICollection<Grade> Graduations { get; set; }
         public virtual ICollection<SkillCategory> SkillCategories { get; set; }
+        public virtual ICollection<Skill> Skills { get; set; }
 
     }
 }

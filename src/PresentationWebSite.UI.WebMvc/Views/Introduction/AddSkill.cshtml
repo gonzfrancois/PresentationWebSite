@@ -1,0 +1,20 @@
+﻿@model PresentationWebSite.UI.WebMvc.Models.Introduction.AddSkillModel
+
+@{
+    ViewBag.Title = @Model.ActiveTab;
+    Layout = "_Show.cshtml";
+}
+
+<h2>@Resources.Global.INTRODUCTION_ADD_SKILL_HEADER</h2>
+@{
+    using (Html.BeginForm("AddSkill", "Introduction", FormMethod.Post, new { model = Model}))
+    {
+        @Html.HiddenFor(m => m.CategoryId)
+        @Html.EditorFor(m => m.Texts, "IEnumerableText")
+        
+        @Html.LabelFor(m=>m.KnowledgePercent,"0 < Knowledge % < 100")
+        @Html.EditorFor(m=>m.KnowledgePercent)
+        <input type="submit" value="Save" />
+        <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
+    }
+}

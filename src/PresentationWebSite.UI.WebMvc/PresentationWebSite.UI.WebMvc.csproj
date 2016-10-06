@@ -178,11 +178,14 @@
     <Compile Include="Helpers\Extensions\ConvertToExtension.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Common\TextModel.cs" />
+    <Compile Include="Models\Introduction\AddSkillModel.cs" />
     <Compile Include="Models\Introduction\GraduationModel.cs" />
     <Compile Include="Models\Introduction\GraduationsModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Introduction\IntroductionModelBase.cs" />
     <Compile Include="Models\Introduction\SkillCategoriesModel.cs" />
+    <Compile Include="Models\Introduction\SkillCategoryModel.cs" />
+    <Compile Include="Models\Introduction\SkillModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Global.es.Designer.cs">
@@ -270,6 +273,8 @@
     <None Include="Views\Introduction\AddGraduation.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\IEnumerableText.cshtml" />
     <Content Include="Views\Introduction\ShowSkills.cshtml" />
+    <Content Include="Views\Introduction\AddSkillCategory.cshtml" />
+    <Content Include="Views\Introduction\AddSkill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

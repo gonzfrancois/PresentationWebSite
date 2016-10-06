@@ -11,7 +11,7 @@ namespace PresentationWebSite.Dal
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<SkillCategory> SkillGategories { get; set; }
-
+        
         public PresentationDbContext() : base("PresentationWebSite")
         {
             Database.SetInitializer(new PresentationDbInitializer());
@@ -19,8 +19,8 @@ namespace PresentationWebSite.Dal
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Add<ManyToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Add<OneToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.Add<ManyToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.Add<OneToManyCascadeDeleteConvention>();
         }
     }
 }

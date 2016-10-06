@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using PresentationWebSite.Dal;
-using PresentationWebSite.Dal.Model;
 using PresentationWebSite.UI.WebMvc.Helpers.Extensions;
 using PresentationWebSite.UI.WebMvc.Models.Common;
 using PresentationWebSite.UI.WebMvc.Models.Introduction;
@@ -14,14 +11,14 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
     public class IntroductionController : Controller
     {
         private PresentationDbContext _db = new PresentationDbContext();
+        
+        #region Graduations
         public ActionResult ShowGraduations()
         {
             return View(new GraduationsModel { Graduations = _db.Grades.ToList() });
         }
 
-        #region Graduations
-
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public ActionResult DeleteGraduation(int gradeId)
         {
             var gradeToRemove = _db.Grades.FirstOrDefault(x => x.Id == gradeId);
@@ -33,7 +30,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             return RedirectToAction(nameof(ShowGraduations));
         }
 
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult AddGraduation()
         {
@@ -43,7 +40,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             });
         }
 
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult AddGraduation(GraduationModel model)
         {
@@ -58,7 +55,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         #endregion
 
         #region SkillCategories
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public ActionResult DeleteSkillCategory(int skillCategoryId)
         {
             var skillCategoryToRemove = _db.SkillGategories.Find(skillCategoryId);
@@ -76,47 +73,87 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             return RedirectToAction(nameof(ShowSkills));
         }
 
-        [Authorize(Roles = "Administrator")]
-        [HttpGet]
-        public ActionResult AddSkillCategory()
+        public ActionResult EditSkillCategory(int skillcategoryid)
         {
             throw new NotImplementedException();
         }
-
-        [Authorize(Roles = "Administrator")]
-        [HttpPost]
-        public ActionResult AddSkillCategory(object model)
+        
+        //[Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult AddSkillCategory()
         {
-            throw new NotImplementedException();
+            return View(new SkillCategoryModel
+            {
+                Texts = _db.Languages.Select(language => new TextModel() { Language = language }).ToList()
+            });
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult AddSkillCategory(SkillCategoryModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.SkillGategories.Add(model.ToDto(ref _db));
+                _db.SaveChanges();
+                return RedirectToAction(nameof(ShowSkills));
+            }
+            return RedirectToAction(nameof(AddSkillCategory));
         }
         #endregion
 
         #region Skills
         public ActionResult ShowSkills()
         {
-            return View(new SkillCategoriesModel() {Categories = _db.SkillGategories.ToList()});
+            return View(new SkillCategoriesModel() { Categories = _db.SkillGategories.ToList() });
         }
-        [Authorize(Roles = "Administrator")]
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult AddSkill(int skillCategoryId)
+        {
+            var model = new AddSkillModel
+            {
+                Texts = _db.Languages.Select(language => new TextModel() {Language = language}).ToList(),
+                CategoryId = skillCategoryId
+            };
+            
+            return View(model);
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult AddSkill(AddSkillModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Skills.Add(model.ToDto(ref _db));
+                _db.SaveChanges();
+                return RedirectToAction(nameof(ShowSkills));
+            }
+            return RedirectToAction(nameof(AddSkill));
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        public ActionResult EditSkill(int skillcategoryid)
+        {
+            throw new NotImplementedException();
+        }
         public ActionResult DeleteSkill(int skillId)
         {
-            throw new NotImplementedException();
+            var skillToRemove = _db.Skills.Find(skillId);
+            if (skillToRemove != null)
+            {
+                _db.Texts.RemoveRange(skillToRemove.Texts);
+                _db.Skills.Remove(skillToRemove);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(ShowSkills));
         }
-
-        [Authorize(Roles = "Administrator")]
-        [HttpGet]
-        public ActionResult AddSkill()
-        {
-            throw new NotImplementedException();
-        }
-
-        [Authorize(Roles = "Administrator")]
-        [HttpPost]
-        public ActionResult AddSkill(object model)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
+
+
+
     }
 
 }
