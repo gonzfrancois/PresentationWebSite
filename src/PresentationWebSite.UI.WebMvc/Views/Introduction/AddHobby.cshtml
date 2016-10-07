@@ -1,0 +1,22 @@
+﻿@using System.Web.Mvc.Html
+@model PresentationWebSite.UI.WebMvc.Models.Introduction.HobbyModel
+
+@{
+    ViewBag.Title = @Model.ActiveTab;
+    Layout = "_Show.cshtml";
+}
+
+<h2>@Resources.Global.INTRODUCTION_ADD_HOBBY_HEADER</h2>
+@{
+    using (Html.BeginForm("AddHobby", "Introduction", FormMethod.Post, new { model = Model }))
+    {
+        @Html.EditorFor(m => m.Texts, "IEnumerableText")
+        <input type="submit" value="Save" />
+        <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
+    }
+}
+
+
+
+
+

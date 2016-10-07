@@ -88,6 +88,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nouveau loisir.
+        /// </summary>
+        public static string INTRODUCTION_ADD_HOBBY_HEADER {
+            get {
+                return ResourceManager.GetString("INTRODUCTION_ADD_HOBBY_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nouvel emploi.
+        /// </summary>
+        public static string INTRODUCTION_ADD_JOB_HEADER {
+            get {
+                return ResourceManager.GetString("INTRODUCTION_ADD_JOB_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nouvelle compétence.
         /// </summary>
         public static string INTRODUCTION_ADD_SKILL_HEADER {
@@ -102,6 +120,15 @@ namespace Resources {
         public static string INTRODUCTION_ADD_SKILLCATEGORY_HEADER {
             get {
                 return ResourceManager.GetString("INTRODUCTION_ADD_SKILLCATEGORY_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nouvelle tache.
+        /// </summary>
+        public static string INTRODUCTION_ADD_WORK_HEADER {
+            get {
+                return ResourceManager.GetString("INTRODUCTION_ADD_WORK_HEADER", resourceCulture);
             }
         }
         

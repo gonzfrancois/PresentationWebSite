@@ -3,28 +3,51 @@
 
 @{
     Layout = "~/Views/Introduction/_Show.cshtml";
+    ViewBag.Title = @Resources.Global.INTRODUCTION_HEADER_JOBS;
+    bool isAdmin = User.IsInRole("Administrator");
 }
 
 <ul class="list-group">
     @foreach (var job in @Model.Jobs.OrderByDescending(x => x.StarterDate))
     {
-        <li>
-            <span>@(job.StarterDate.ToString("M")) - @(job.EndDate?.ToString("M"))</span>
-            <span>@(job.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</span>
-            <span>@Html.ActionLink("Delete", "DeleteJob", new { jobId = job.Id })</span>
+        <li class="list-group-item">
+            <span class="label label-default">@(job.StarterDate.ToString("Y")) - @(job.EndDate?.ToString("Y"))</span>
+            <h2>
+                @(job.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                @{
+                    if (isAdmin)
+                    {
+                        <span>@Html.ActionLink("Delete", "DeleteJob", new { jobId = job.Id })</span>
+                    }
+                }
+            </h2>
             <ul>
                 @{
-                    @Html.ActionLink("Add", "AddWork", new { jobId = job.Id })
                     foreach (var work in job.Works.OrderByDescending(x => x.DisplayPriority))
                     {
                         <li>
                             @(work.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
-                            <span>@Html.ActionLink("Delete", "DeleteWork", new { workId = work.Id })</span>
+                            @{
+                                if (isAdmin)
+                                {
+                                    <span>@Html.ActionLink("Delete", "DeleteWork", new { workId = work.Id })</span>
+                                }
+                            }
                         </li>
-                    }
+                                }
+
+                                if (isAdmin)
+                                {
+                                    <li>@Html.ActionLink("Add", "AddWork", new { jobId = job.Id })</li>
+                                }
                 }
             </ul>
         </li>
-                    }
+    }
+    @{
+        if (isAdmin)
+        {
+            <li>@Html.ActionLink("Add", "AddJob")</li>
+        }
+    }
 </ul>
-<div>@Html.ActionLink("Add", "AddJob")</div>

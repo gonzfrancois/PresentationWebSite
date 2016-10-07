@@ -1,35 +1,36 @@
 ﻿@using System.Globalization
-@using Microsoft.AspNet.Identity
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.SkillCategoriesModel
 
 @{
     Layout = "~/Views/Introduction/_Show.cshtml";
+    ViewBag.Title = @Resources.Global.INTRODUCTION_HEADER_SKILLS;
+    bool isAdmin = User.IsInRole("Ddministrator");
 }
 
 <ul class="list-group">
     @foreach (var skillCategory in @Model.Categories.OrderBy(x => x.DisplayPriority))
     {
-        var name = skillCategory.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
-        <li>
-            @name
+        <li class="list-group-item">
+            <div>@(skillCategory.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</div>
             @{
-//if (User.IsInRole("Administrator"))
-//{
-                <span>@Html.ActionLink("Delete", "DeleteSkillCategory", new { skillCategoryId = skillCategory.Id })</span>
-                //}
+                if (isAdmin)
+                {
+                    <span>@Html.ActionLink("Delete", "DeleteSkillCategory", new { skillCategoryId = skillCategory.Id })</span>
+                }
             }
             <ul>
                 @{
-                    <span>@Html.ActionLink("Add", "AddSkill", new { skillCategoryId = skillCategory.Id })</span>
-                    foreach (var skill in skillCategory.Skills.OrderByDescending(x=>x.KnowledgePercent))
+                    foreach (var skill in skillCategory.Skills.OrderByDescending(x => x.KnowledgePercent))
                     {
-                        var skillName = skill.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
                         <li>
                             <div class="container">
-                                <h2>
-                                    @skillName
-                                    <span>@Html.ActionLink("Delete", "DeleteSkill", new { skillId = skill.Id })</span>
-                                </h2>
+                                @(skill.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                                @{
+                                    if (isAdmin)
+                                    {
+                                        <span>@Html.ActionLink("Delete", "DeleteSkill", new { skillId = skill.Id })</span>
+                                    }
+                                }
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" aria-valuenow="@(skill.KnowledgePercent)" aria-valuemin="0" aria-valuemax="100" style="width:@(skill.KnowledgePercent)%">
                                         <span class="sr-only">@(skill.KnowledgePercent.ToString())% Complete</span>
@@ -38,9 +39,17 @@
                             </div>
                         </li>
                     }
+                    if (isAdmin)
+                    {
+                        <li>@Html.ActionLink("Add", "AddSkill", new { skillCategoryId = skillCategory.Id })</li>
+                    }
                 }
             </ul>
         </li>
                     }
+    @{if (isAdmin)
+        {
+            <li>@Html.ActionLink("Add", "AddSkillCategory")</li>
+        }
+    }
 </ul>
-<div>@Html.ActionLink("Add", "AddSkillCategory")</div>

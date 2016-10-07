@@ -1,0 +1,31 @@
+﻿@using System.Globalization
+@model PresentationWebSite.UI.WebMvc.Models.Introduction.HobbiesModel
+
+@{
+    Layout = "~/Views/Introduction/_Show.cshtml";
+    ViewBag.Title = @Resources.Global.INTRODUCTION_HEADER_HOBBIES;
+    bool isAdmin = User.IsInRole("Administrator");
+}
+
+<ul class="list-group">
+    @foreach (var hobby in @Model.Hobbies)
+    {
+        <li class="list-group-item">
+            <div>
+                @(hobby.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                @{
+                    if (isAdmin)
+                    {
+                        <span>@(Html.ActionLink("Delete", "DeleteHobby", new { hobbyId = hobby.Id }))</span>
+                    }
+                }
+            </div>
+        </li>
+                    }
+    @{
+        if (isAdmin)
+        {
+            <li>@Html.ActionLink("Add", "AddHobby")</li>
+        }
+    }
+</ul>

@@ -24,5 +24,15 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Contact(dynamic model)
+        {
+            if (model.success)
+            {
+                return View();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

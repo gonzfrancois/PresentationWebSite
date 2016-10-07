@@ -1,0 +1,39 @@
+﻿@model PresentationWebSite.UI.WebMvc.Models.Introduction.JobModel
+
+@{
+    ViewBag.Title = @Model.ActiveTab;
+    Layout = "_Show.cshtml";
+}
+
+<h2>@Resources.Global.INTRODUCTION_ADD_JOB_HEADER</h2>
+@{
+    using (Html.BeginForm("AddJob", "Introduction", FormMethod.Post, new { model = Model }))
+    {
+        @Html.EditorFor(m => m.Texts, "IEnumerableText")
+        <br/>
+        @Html.LabelFor(m => m.StarterDate, "Starter date")
+        @Html.EditorFor(m => m.StarterDate)
+        <br />
+        <div id="endDate" class="hidden">
+            @Html.LabelFor(m => m.EndDate, "End date")
+            @Html.EditorFor(m => m.EndDate)
+        </div>
+        <br/>
+        @Html.LabelFor(m => m.IsNotActualJob)
+        @Html.EditorFor(m => m.IsNotActualJob)
+        <br/>
+        <input type="submit" value="Save" />
+        <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
+    }
+}
+<script type="text/javascript">
+    document.getElementById('IsNotActualJob').addEventListener("click",
+        function() {
+            var cl = document.getElementById('endDate');
+            if (cl.className === 'hidden') {
+                cl.setAttribute('class', 'show');
+            } else {
+                cl.setAttribute('class', 'hidden');
+            }
+    });
+</script>

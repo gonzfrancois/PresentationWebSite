@@ -11,7 +11,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
     public class IntroductionController : Controller
     {
         private PresentationDbContext _db = new PresentationDbContext();
-        
+
         #region Graduations
         public ActionResult ShowGraduations()
         {
@@ -21,7 +21,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         //[Authorize(Roles = "Administrator")]
         public ActionResult DeleteGraduation(int gradeId)
         {
-            var gradeToRemove = _db.Grades.FirstOrDefault(x => x.Id == gradeId);
+            var gradeToRemove = _db.Grades.Find(gradeId);
             if (gradeToRemove != null)
             {
                 _db.Grades.Remove(gradeToRemove);
@@ -77,7 +77,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         {
             throw new NotImplementedException();
         }
-        
+
         //[Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult AddSkillCategory()
@@ -114,10 +114,10 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         {
             var model = new AddSkillModel
             {
-                Texts = _db.Languages.Select(language => new TextModel() {Language = language}).ToList(),
+                Texts = _db.Languages.Select(language => new TextModel() { Language = language }).ToList(),
                 CategoryId = skillCategoryId
             };
-            
+
             return View(model);
         }
 
@@ -156,7 +156,14 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         //[Authorize(Roles = "Administrator")]
         public ActionResult DeleteWork(int workId)
         {
-            throw new NotImplementedException();
+            var workToRemove = _db.Works.Find(workId);
+            if (workToRemove != null)
+            {
+                _db.Texts.RemoveRange(workToRemove.Texts);
+                _db.Works.Remove(workToRemove);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(ShowSkills));
         }
 
         public ActionResult EditWok(int workId)
@@ -166,18 +173,28 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         //[Authorize(Roles = "Administrator")]
         [HttpGet]
-        public ActionResult AddWork()
+        public ActionResult AddWork(int jobId)
         {
-            throw new NotImplementedException();
+            return View(new AddWorkModel()
+            {
+                Texts = _db.Languages.Select(language => new TextModel() { Language = language }).ToList(),
+                JobId = jobId
+            });
         }
 
         //[Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult AddWork(object model)
+        public ActionResult AddWork(AddWorkModel model)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                _db.Works.Add(model.ToDto(ref _db));
+                _db.SaveChanges();
+                return RedirectToAction(nameof(ShowJobs));
+            }
+            return RedirectToAction(nameof(AddWork));
         }
-        
+
         #endregion
 
         #region Jobs
@@ -190,7 +207,19 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         //[Authorize(Roles = "Administrator")]
         public ActionResult DeleteJob(int jobId)
         {
-            throw new NotImplementedException();
+            var jobToRemove = _db.Jobs.Find(jobId);
+            if (jobToRemove != null)
+            {
+                foreach (var wk in jobToRemove.Works)
+                {
+                    _db.Texts.RemoveRange(wk.Texts);
+                }
+                _db.Texts.RemoveRange(jobToRemove.Texts);
+                _db.Works.RemoveRange(jobToRemove.Works);
+                _db.Jobs.Remove(jobToRemove);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(ShowSkills));
         }
 
         public ActionResult EditJob(int jobId)
@@ -202,17 +231,67 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         [HttpGet]
         public ActionResult AddJob()
         {
-            throw new NotImplementedException();
+            return View(new JobModel()
+            {
+                Texts = _db.Languages.Select(language => new TextModel() { Language = language }).ToList()
+            });
         }
 
         //[Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult AddJob(object model)
+        public ActionResult AddJob(JobModel model)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                _db.Jobs.Add(model.ToDto(ref _db));
+                _db.SaveChanges();
+                return RedirectToAction(nameof(ShowJobs));
+            }
+            return RedirectToAction(nameof(AddJob));
         }
         #endregion
 
+        #region Hobbies
+        public ActionResult ShowHobbies()
+        {
+            return View(new HobbiesModel() { Hobbies = _db.Hobbies.ToList() });
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        public ActionResult DeleteHobby(int hobbyId)
+        {
+            var hobbyToRemove = _db.Hobbies.Find(hobbyId);
+            if (hobbyToRemove != null)
+            {
+                _db.Hobbies.Remove(hobbyToRemove);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(ShowHobbies));
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult AddHobby()
+        {
+            return View(new HobbyModel()
+            {
+                Texts = _db.Languages.Select(language => new TextModel() { Language = language }).ToList()
+            });
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult AddHobby(HobbyModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Hobbies.Add(model.ToDto(ref _db));
+                _db.SaveChanges();
+                return RedirectToAction(nameof(ShowHobbies));
+            }
+            return RedirectToAction(nameof(AddHobby));
+        }
+        #endregion
     }
 
 }

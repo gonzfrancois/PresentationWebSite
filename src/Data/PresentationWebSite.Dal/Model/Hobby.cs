@@ -9,7 +9,8 @@ namespace PresentationWebSite.Dal.Model
     public class Hobby
     {
         public int Id { get; set; }
-        public ICollection<Text> Texts { get; set; }
         public byte[] Content { get; set; }
+
+        public virtual ICollection<Text> Texts { get; set; }
     }
 }

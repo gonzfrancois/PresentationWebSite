@@ -1,0 +1,20 @@
+﻿@model PresentationWebSite.UI.WebMvc.Models.Introduction.AddWorkModel
+
+@{
+    ViewBag.Title = @Model.ActiveTab;
+    Layout = "_Show.cshtml";
+}
+
+<h2>@Resources.Global.INTRODUCTION_ADD_WORK_HEADER</h2>
+@{
+    using (Html.BeginForm("AddWork", "Introduction", FormMethod.Post, new { model = Model }))
+    {
+        @Html.HiddenFor(m => m.JobId)
+        @Html.EditorFor(m => m.Texts, "IEnumerableText")
+
+        @Html.LabelFor(m => m.DisplayPriority, "less is hight")
+        @Html.EditorFor(m => m.DisplayPriority)
+        <input type="submit" value="Save" />
+        <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
+    }
+}

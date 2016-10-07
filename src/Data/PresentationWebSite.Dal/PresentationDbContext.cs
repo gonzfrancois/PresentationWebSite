@@ -13,6 +13,7 @@ namespace PresentationWebSite.Dal
         public DbSet<SkillCategory> SkillGategories { get; set; }
         public DbSet<Work> Works { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Hobby> Hobbies { get; set; }
 
         public PresentationDbContext() : base("PresentationWebSite")
         {

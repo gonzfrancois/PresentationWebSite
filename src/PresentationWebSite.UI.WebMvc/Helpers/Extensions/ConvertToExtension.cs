@@ -59,6 +59,60 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return dto;
         }
 
+        internal static Work ToDto(this AddWorkModel model, ref PresentationDbContext context)
+        {
+
+            var dto = new Work()
+            {
+                Job = context.Jobs.Find(model.JobId),
+                DisplayPriority = model.DisplayPriority,
+                Texts = new List<Text>()
+            };
+            foreach (var modelText in model.Texts)
+            {
+                dto.Texts.Add(new Text()
+                {
+                    Language = context.Languages.Find(modelText.Language.Id),
+                    Value = modelText.Value
+                });
+            }
+            return dto;
+        }
+
+        internal static Job ToDto(this JobModel model, ref PresentationDbContext context)
+        {
+            var newJob = new Job() { Texts = new List<Text>() };
+            foreach (var modelText in model.Texts)
+            {
+                newJob.Texts.Add(new Text()
+                {
+                    Language = context.Languages.Find(modelText.Language.Id),
+                    Value = modelText.Value
+                });
+            }
+            newJob.StarterDate = model.StarterDate;
+            if (model.IsNotActualJob)
+            {
+                newJob.EndDate = model.EndDate;
+            }
+            return newJob;
+        }
+
+        internal static Hobby ToDto(this HobbyModel model, ref PresentationDbContext context)
+        {
+            var newHobby = new Hobby() { Texts = new List<Text>() };
+            foreach (var modelText in model.Texts)
+            {
+                newHobby.Texts.Add(new Text()
+                {
+                    Language = context.Languages.Find(modelText.Language.Id),
+                    Value = modelText.Value
+                });
+            }
+            //newHobby.Content = model.Content;
+            return newHobby;
+        }
+
         internal static SkillCategoryModel ToDto(this SkillCategory model)
         {
             var dto = new SkillCategoryModel()

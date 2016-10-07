@@ -1,27 +1,32 @@
 ﻿@using System.Globalization
-@using Microsoft.AspNet.Identity
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.GraduationsModel
 
 @{
     Layout = "~/Views/Introduction/_Show.cshtml";
+    ViewBag.Title = @Resources.Global.INTRODUCTION_HEADER_GRADUATIONS;
+    bool isAdmin = User.IsInRole("Administrator");
 }
 
 <ul class="list-group">
     @foreach (var grade in @Model.Graduations.OrderByDescending(x => x.ObtainingDateTime))
     {
-        var value = grade.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
-        var year = grade.ObtainingDateTime.Year;
-
         <li class="list-group-item">
-            <span class="label label-default">@year</span>
-            <div>@value</div>
+            <span class="label label-default">@(grade.ObtainingDateTime.Year)</span>
+            <div>
+                @(grade.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                @{
+                    if (isAdmin)
+                    {
+                        <span>@(Html.ActionLink("Delete", "DeleteGraduation", new { gradeId = grade.Id }))</span>
+                    }
+                }
+            </div>
         </li>
-        //if (User.IsInRole("Administrator"))
-        //{
-        var mvcHtmlString = Html.ActionLink("Delete", "DeleteGraduation", new { gradeId = grade.Id });
-            @mvcHtmlString
-        //}
-
     }
-    @Html.ActionLink("Add","AddGraduation")
+    @{
+        if (isAdmin)
+        {
+            <li>@Html.ActionLink("Add", "AddGraduation")</li>
+        }
+    }
 </ul>

@@ -204,6 +204,30 @@ namespace PresentationWebSite.Dal
             };
             context.Jobs.Add(job2);
 
+            var hobby1Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "hobby1 fr"},
+                    new Text() {Language = es, Value = "hobby1 es"},
+                    new Text() {Language = en, Value = "hobby1 en"},
+                    new Text() {Language = ca, Value = "hobby1 ca"}
+                };
+            context.Texts.AddRange(hobby1Texts);
+
+            var hobby2Texts = new List<Text>()
+                {
+                    new Text() {Language = fr, Value = "hobby2 fr"},
+                    new Text() {Language = es, Value = "hobby2 es"},
+                    new Text() {Language = en, Value = "hobby2 en"},
+                    new Text() {Language = ca, Value = "hobby2 ca"}
+                };
+            context.Texts.AddRange(hobby2Texts);
+
+            var hobby1 = new Hobby() { Texts = hobby1Texts};
+            context.Hobbies.Add(hobby1);
+
+            var hobby2 = new Hobby() { Texts = hobby2Texts };
+            context.Hobbies.Add(hobby2);
+
             base.Seed(context);
         }
     }
