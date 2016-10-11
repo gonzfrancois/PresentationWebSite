@@ -1,24 +1,24 @@
-﻿@{
-    ViewBag.Title = @Resources.Global.APPLICATION_OWNER_NAME + " - " + @Resources.Global.APPLICATION_OWNER_JOB;
+﻿@using System.Configuration
+@{
+    ViewBag.Title = ConfigurationManager.AppSettings["ApplicationOwnerName"] + " - " + @Resources.Global.APPLICATION_OWNER_JOB;
 }
 
 <div class="jumbotron">
     <h1>@Resources.Global.APPLICATION_OWNER_NAME</h1>
     <h2>@Resources.Global.APPLICATION_OWNER_JOB</h2>
-    <p class="lead">Text lead</p>
 </div>
 
-<div class="row">
+<div class="row panel">
     <div class="col-xs-6 col-md-4">
         <h2>Texte 1</h2>
         <p>
             texte 1
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-xs-6 col-md-4">
-        <h2>Texte 2</h2>
-        <p>texte 2</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Suivez-moi sur :</h2>
+        <p>
+            <a href="https://fr.linkedin.com/pub/fran%C3%A7ois-gonzalez/48/819/701" style="text-decoration:none;"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="Voir le profil LinkedIn de François GONZALEZ" style="vertical-align:middle;" border="0">&nbsp;Voir le profil de François GONZALEZ</span></a>
+        </p>
     </div>
 </div>
