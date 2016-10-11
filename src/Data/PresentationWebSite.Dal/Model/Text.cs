@@ -16,6 +16,8 @@ namespace PresentationWebSite.Dal.Model
         public virtual ICollection<Job> Jobs { get; set; }
         public virtual ICollection<Work> Works { get; set; }
         public virtual ICollection<Hobby> Hobbies { get; set; }
+        public virtual ICollection<ApplicationUser> UserWorks { get; set; }
+        public virtual ICollection<ApplicationUser> UserPresentation { get; set; }
 
     }
 }

@@ -14,17 +14,10 @@ namespace PresentationWebSite.Dal.Model
         public string PhoneNumber { get; set; }
         public string City { get; set; }
         public string ZipCode  { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        
+        public virtual ICollection<Text> DisplayWork { get; set; }
+        public virtual ICollection<Text> PresentationTexts { get; set; }
 
-        public ICollection<Text> DisplayWork { get; set; }
-        public ICollection<PresentationText> PresentationTexts { get; set; }
-
-    }
-
-    
-
-    public class PresentationText
-    {
-        public int Id { get; set; }
-        public ICollection<Text> Texts { get; set; }
     }
 }

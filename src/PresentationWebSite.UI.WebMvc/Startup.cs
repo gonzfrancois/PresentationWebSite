@@ -32,14 +32,14 @@ namespace PresentationWebSite.UI.WebMvc
                 roleManager.Create(role);
 
                 //HACK If UserName and Email aren't the same, we could'nt log in. This is a issue from Identity 2.0. See http://stackoverflow.com/a/24252833/2961285
-                var adminEmail = ConfigurationManager.AppSettings["AdminEmail"];
+                var adminEmail = ConfigurationManager.AppSettings["AdministratorEmail"];
                 var user = new ApplicationUser
                 {
                     UserName = adminEmail,
                     Email = adminEmail
                 };
 
-                var userPwd = ConfigurationManager.AppSettings["AdmineBasePwd"]; 
+                var userPwd = ConfigurationManager.AppSettings["AdministratorBasePwd"]; 
 
                 var chkUser = userManager.Create(user, userPwd);
 
