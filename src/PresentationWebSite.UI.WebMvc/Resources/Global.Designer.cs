@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Suivez-moi sur.
+        /// </summary>
+        public static string HOME_HEADER_FOLLOW_ME {
+            get {
+                return ResourceManager.GetString("HOME_HEADER_FOLLOW_ME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nouveau diplôme.
         /// </summary>
         public static string INTRODUCTION_ADD_GRADUATION_HEADER {
@@ -192,6 +201,15 @@ namespace Resources {
         public static string NAVBAR_MENU_INTRODUCTION_HEADER {
             get {
                 return ResourceManager.GetString("NAVBAR_MENU_INTRODUCTION_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string NAVBAR_MENU_LANGUAGE_CONTACT {
+            get {
+                return ResourceManager.GetString("NAVBAR_MENU_LANGUAGE_CONTACT", resourceCulture);
             }
         }
         

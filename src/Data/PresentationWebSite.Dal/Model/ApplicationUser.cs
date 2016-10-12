@@ -15,9 +15,15 @@ namespace PresentationWebSite.Dal.Model
         public string City { get; set; }
         public string ZipCode  { get; set; }
         public DateTime DateOfBirth { get; set; }
-        
+        public string LinkedInUrl { get; set; }
+        public string TwitterName { get; set; }
+
         public virtual ICollection<Text> DisplayWork { get; set; }
-        public virtual ICollection<Text> PresentationTexts { get; set; }
+        public virtual ICollection<Text> ApplicationUserPresentations { get; set; }
+        public virtual ICollection<Text> PresentationSubTitleTexts { get; set; }
+        public virtual ICollection<Text> PresentationTitleTexts { get; set; }
 
     }
+
+    
 }

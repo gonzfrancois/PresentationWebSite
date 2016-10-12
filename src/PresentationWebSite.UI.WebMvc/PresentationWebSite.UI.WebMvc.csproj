@@ -179,6 +179,7 @@
     <Compile Include="Helpers\Extensions\ConvertToExtension.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Common\TextModel.cs" />
+    <Compile Include="Models\Home\ApplicationUserModel.cs" />
     <Compile Include="Models\Introduction\AddWorkModel.cs" />
     <Compile Include="Models\Introduction\AddSkillModel.cs" />
     <Compile Include="Models\Introduction\GraduationModel.cs" />
@@ -227,6 +228,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\flags.png" />
     <Content Include="Images\pexels-photo.jpg" />
+    <Content Include="Images\profilePicture.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

@@ -3,7 +3,9 @@ using System.Linq;
 using PresentationWebSite.Dal;
 using PresentationWebSite.Dal.Model;
 using PresentationWebSite.UI.WebMvc.Models.Common;
+using PresentationWebSite.UI.WebMvc.Models.Home;
 using PresentationWebSite.UI.WebMvc.Models.Introduction;
+using WebGrease.Css.Extensions;
 
 namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
 {
@@ -113,6 +115,32 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newHobby;
         }
 
+        internal static ApplicationUser ToDto(this ApplicationUserModel model, ref PresentationDbContext context)
+        {
+            var result = new ApplicationUser()
+            {
+                Id = model.Id,
+                City = model.City,
+                DateOfBirth = model.DateOfBirth,
+                FamilyName = model.FamilyName,
+                FirstName = model.FirstName,
+                PhoneNumber = model.PhoneNumber,
+                ZipCode = model.ZipCode,
+                LinkedInUrl = model.LinkedInUrl,
+                TwitterName = model.TwitterName,
+                DisplayWork = new List<Text>(),
+                ApplicationUserPresentations = new List<Text>(),
+                PresentationTitleTexts = new List<Text>(),
+                PresentationSubTitleTexts = new List<Text>()
+            };
+            var languages = context.Languages.ToList();
+            model.DisplayWork.ForEach(x=> result.DisplayWork.Add(new Text() { Language = languages.First(y=> y.Id == x.Language.Id), Value = x.Value }));
+            model.PresentationSubTitleTexts.ForEach(x=> result.PresentationSubTitleTexts.Add(new Text() { Language = languages.First(y=> y.Id == x.Language.Id), Value = x.Value }));
+            model.PresentationTitleTexts.ForEach(x=> result.PresentationTitleTexts.Add(new Text() { Language = languages.First(y=> y.Id == x.Language.Id), Value = x.Value }));
+            model.PresentationTexts.ForEach(x=> result.ApplicationUserPresentations.Add(new Text() { Language = languages.First(y=> y.Id == x.Language.Id), Value = x.Value }));
+            return result;
+        }
+
         internal static SkillCategoryModel ToDto(this SkillCategory model)
         {
             var dto = new SkillCategoryModel()
@@ -140,6 +168,36 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             {
                 Language = model.Language,
                 Value = model.Value
+            };
+        }
+
+        internal static ApplicationUserModel ToDto(this ApplicationUser model, IList<TextModel> textModels)
+        {
+            if (model!=null)
+            {
+                return new ApplicationUserModel
+                {
+                    Id = model.Id,
+                    City = model.City,
+                    DateOfBirth = model.DateOfBirth,
+                    FamilyName = model.FamilyName,
+                    FirstName = model.FirstName,
+                    PhoneNumber = model.PhoneNumber,
+                    ZipCode = model.ZipCode,
+                    LinkedInUrl = model.LinkedInUrl,
+                    TwitterName = model.TwitterName,
+                    DisplayWork = new List<TextModel>(model.DisplayWork.Select(x => x.ToDto())),
+                    PresentationTexts = new List<TextModel>(model.ApplicationUserPresentations.Select(x => x.ToDto())),
+                    PresentationSubTitleTexts = new List<TextModel>(model.PresentationSubTitleTexts.Select(x => x.ToDto())),
+                    PresentationTitleTexts = new List<TextModel>(model.PresentationTitleTexts.Select(x => x.ToDto()))
+                };
+            }
+            return new ApplicationUserModel()
+            {
+                DisplayWork = textModels,
+                PresentationSubTitleTexts = textModels,
+                PresentationTitleTexts = textModels,
+                PresentationTexts = textModels
             };
         }
     }

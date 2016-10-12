@@ -14,6 +14,7 @@ namespace PresentationWebSite.Dal
         public DbSet<Work> Works { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
 
         public PresentationDbContext() : base("PresentationWebSite")
         {

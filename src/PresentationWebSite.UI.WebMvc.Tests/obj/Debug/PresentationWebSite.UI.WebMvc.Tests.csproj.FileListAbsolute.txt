@@ -118,3 +118,6 @@ C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.csprojResolveAssemblyReference.cache
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.dll
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\obj\Debug\PresentationWebSite.UI.WebMvc.Tests.pdb
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\WebGrease.dll
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Antlr3.Runtime.dll
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Antlr3.Runtime.pdb

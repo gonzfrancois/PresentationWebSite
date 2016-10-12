@@ -1,41 +1,102 @@
-﻿@using System.Configuration
+﻿@using System.Globalization
+@model PresentationWebSite.UI.WebMvc.Models.Home.ApplicationUserModel
 @{
-    ViewBag.Title = ConfigurationManager.AppSettings["ApplicationOwnerName"] + " - " + @Resources.Global.APPLICATION_OWNER_JOB;
+    ViewBag.Title = Model.FirstName + " " + Model.FamilyName + " - " + Model.DisplayWork.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
+    ViewBag.ApplicationOwner = Model.FirstName + " " + Model.FamilyName;
 }
 
 <div class="jumbotron">
-    <h1>@Resources.Global.APPLICATION_OWNER_NAME</h1>
-    <h2>@Resources.Global.APPLICATION_OWNER_JOB</h2>
+    <h1>@Model.FirstName @Model.FamilyName</h1>
+    <h2>@(Model.DisplayWork.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</h2>
 </div>
 
 <div class="row panel">
-    <div class="col-xs-12 col-md-8">
-        <div class="col-xs-12 col-md-12">
+    @{
+        if (!Model.IsEditMode)
+        {
+            <div class="col-xs-12 col-md-8">
+                <div class="col-xs-12 col-md-12">
+                    <div class="col-xs-12 col-md-4">
+                        <img src="~/Images/profilePicture.jpg" width="100%" height="100%" alt="@Model.FirstName @Model.FamilyName" />
+                    </div>
+                    <div class="col-xs-12 col-md-8">
+                        <blockquote>
+                            @{
+                                if (User.IsInRole("Administrator"))
+                                {
+                                    @Html.ActionLink("Edit", "EditApplicationUser")
+                                }
+                            }
+                            @(Model.PresentationTexts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                            <h3>@(Model.PresentationSubTitleTexts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</h3>
+                            <h2>@(Model.PresentationTitleTexts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</h2>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <div class="col-xs-12 col-md-8">
+                        <h2>@Resources.Global.HOME_HEADER_FOLLOW_ME :</h2>
+                        <p>
+                            <a href="@(Model.LinkedInUrl)" style="text-decoration: none;" target="_blank">
+                                <span style="font: 80% Arial, sans-serif; color: #0783B6;">
+                                    <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="@Model.FirstName @Model.FamilyName" style="vertical-align: middle;" border="0">&nbsp;@Model.FirstName @Model.FamilyName
+                                </span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class="col-xs-12 col-md-4">
-                <img src="" width="100%" height="100%" alt="@(ConfigurationManager.AppSettings["ApplicationOwnerName"])" />
+                <a class="twitter-timeline" data-width="100%" data-height="400" data-theme="light" href="https://twitter.com/@Model.TwitterName">Tweets by @Model.TwitterName</a>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
-            <div class="col-xs-12 col-md-8">
-                <h2>Bienvenue sur mon site</h2>
-                <p>
-                    Developpeur .Net autodidacte
-                </p>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-8">
-            <div class="col-xs-12 col-md-8">
-                <h2>Suivez-moi sur :</h2>
-                <p>
-                    <a href="https://fr.linkedin.com/pub/fran%C3%A7ois-gonzalez/48/819/701" style="text-decoration: none;">
-                        <span style="font: 80% Arial, sans-serif; color: #0783B6;">
-                            <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="Voir le profil LinkedIn de François GONZALEZ" style="vertical-align: middle;" border="0">&nbsp;Voir le profil de François GONZALEZ
-                        </span>
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-4">
-        <a class="twitter-timeline" data-width="100%" data-height="400" data-theme="light" href="https://twitter.com/TwitterDev">Tweets by TwitterDev</a>
-        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
+                                }
+                                else
+                                {
+                                    using (Html.BeginForm("EditApplicationUser", "Home", FormMethod.Post, new { enctype = "multipart/form-data", model = Model }))
+                                    {
+                                        <fieldset>
+                                            @Html.HiddenFor(m => m.Id)
+                                            <br />
+                                            @Html.LabelFor(m => m.FirstName)
+                                            @Html.EditorFor(m => m.FirstName)
+                                            <br />
+                                            @Html.LabelFor(m => m.FamilyName)
+                                            @Html.EditorFor(m => m.FamilyName)
+                                            <br />
+                                            @Html.LabelFor(m => m.PhoneNumber)
+                                            @Html.EditorFor(m => m.PhoneNumber)
+                                            <br />
+                                            @Html.LabelFor(m => m.City)
+                                            @Html.EditorFor(m => m.City)
+                                            <br />
+                                            @Html.LabelFor(m => m.ZipCode)
+                                            @Html.EditorFor(m => m.ZipCode)
+                                            <br />
+                                            @Html.LabelFor(m => m.DateOfBirth)
+                                            @Html.EditorFor(m => m.DateOfBirth)
+                                            <br />
+                                            @Html.LabelFor(m => m.LinkedInUrl)
+                                            @Html.EditorFor(m => m.LinkedInUrl)
+                                            <br />
+                                            @Html.LabelFor(m => m.TwitterName)
+                                            @Html.EditorFor(m => m.TwitterName)
+                                            <br />
+                                            @Html.LabelFor(m => m.DisplayWork, nameof(Model.DisplayWork))
+                                            @Html.EditorFor(m => m.DisplayWork, "IEnumerableText", Model.DisplayWork)
+                                            <br />
+                                            @Html.LabelFor(m => m.PresentationTexts, nameof(Model.PresentationTexts))
+                                            @Html.EditorFor(m => m.PresentationTexts, "IEnumerableText", Model.PresentationTexts)
+                                            <br />
+                                            @Html.LabelFor(m => m.PresentationTexts, nameof(Model.PresentationSubTitleTexts))
+                                            @Html.EditorFor(m => m.PresentationSubTitleTexts, "IEnumerableText", Model.PresentationSubTitleTexts)
+                                            <br />
+                                            @Html.LabelFor(m => m.PresentationTexts, nameof(Model.PresentationTitleTexts))
+                                            @Html.EditorFor(m => m.PresentationTitleTexts, "IEnumerableText", Model.PresentationTitleTexts)
+                                            <br />
+                                            <input type="submit" value="Save" />
+                                        </fieldset>
+                                    }
+                                }
+    }
 </div>

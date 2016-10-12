@@ -123,6 +123,9 @@
   <data name="APPLICATION_OWNER_NAME" xml:space="preserve">
     <value>François GONZALEZ</value>
   </data>
+  <data name="HOME_HEADER_FOLLOW_ME" xml:space="preserve">
+    <value>Suivez-moi sur</value>
+  </data>
   <data name="INTRODUCTION_ADD_GRADUATION_HEADER" xml:space="preserve">
     <value>Nouveau diplôme</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="NAVBAR_MENU_INTRODUCTION_HEADER" xml:space="preserve">
     <value>Présentation - C.V.</value>
+  </data>
+  <data name="NAVBAR_MENU_LANGUAGE_CONTACT" xml:space="preserve">
+    <value>Contact</value>
   </data>
   <data name="NAVBAR_MENU_LANGUAGE_HEADER" xml:space="preserve">
     <value>Langue</value>
