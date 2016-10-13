@@ -120,9 +120,6 @@
   <data name="APPLICATION_OWNER_JOB" xml:space="preserve">
     <value>Desenvolupador .Net</value>
   </data>
-  <data name="APPLICATION_OWNER_NAME" xml:space="preserve">
-    <value>François GONZALEZ</value>
-  </data>
   <data name="HOME_HEADER_FOLLOW_ME" xml:space="preserve">
     <value>Segueix-em en</value>
   </data>
@@ -156,6 +153,9 @@
   <data name="INTRODUCTION_HEADER_SKILLS" xml:space="preserve">
     <value>Habilitats</value>
   </data>
+  <data name="NAVBAR_MENU_CONTACT_HEADER" xml:space="preserve">
+    <value>Contacte</value>
+  </data>
   <data name="NAVBAR_MENU_HOME_HEADER" xml:space="preserve">
     <value>Inici</value>
   </data>
@@ -164,9 +164,6 @@
   </data>
   <data name="NAVBAR_MENU_INTRODUCTION_HEADER" xml:space="preserve">
     <value>Presentació - C.V.</value>
-  </data>
-  <data name="NAVBAR_MENU_LANGUAGE_CONTACT" xml:space="preserve">
-    <value>Contacte</value>
   </data>
   <data name="NAVBAR_MENU_LANGUAGE_HEADER" xml:space="preserve">
     <value>Idioma</value>

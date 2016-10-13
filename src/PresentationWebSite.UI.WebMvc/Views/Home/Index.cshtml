@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-md-4">
-                <a class="twitter-timeline" data-width="100%" data-height="400" data-theme="light" href="https://twitter.com/@Model.TwitterName">Tweets by @Model.TwitterName</a>
+                <a class="twitter-timeline" data-width="100%" data-height="400" data-theme="light" href="https://twitter.com/@Model.TwitterName" target="_blank">Tweets by @Model.TwitterName</a>
                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
                                 }
@@ -66,6 +66,9 @@
                                             <br />
                                             @Html.LabelFor(m => m.PhoneNumber)
                                             @Html.EditorFor(m => m.PhoneNumber)
+                                            <br />
+                                            @Html.LabelFor(m => m.Email)
+                                            @Html.EditorFor(m => m.Email)
                                             <br />
                                             @Html.LabelFor(m => m.City)
                                             @Html.EditorFor(m => m.City)

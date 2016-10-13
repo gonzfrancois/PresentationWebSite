@@ -24,18 +24,8 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         public ActionResult Contact()
         {
-            var model = _db.Users.FirstOrDefault();
+            var model = _db.Users.FirstOrDefault().ToDto(_db.Languages.Select(language => new TextModel() { Language = language }).ToList());
             return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult Contact(dynamic model)
-        {
-            if (model.success)
-            {
-                return View();
-            }
-            return RedirectToAction("Index");
         }
 
         [HttpGet]

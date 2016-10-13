@@ -32,9 +32,7 @@ E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\
 E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.dll
 E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.pdb
 E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.dll
-E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.dll
 E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.xml
-E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.xml
-E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache
 E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.dll
 E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.pdb
+E:\Docs Francois\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache

@@ -61,24 +61,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Développeur .Net.
-        /// </summary>
-        public static string APPLICATION_OWNER_JOB {
-            get {
-                return ResourceManager.GetString("APPLICATION_OWNER_JOB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to François GONZALEZ.
-        /// </summary>
-        public static string APPLICATION_OWNER_NAME {
-            get {
-                return ResourceManager.GetString("APPLICATION_OWNER_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Suivez-moi sur.
         /// </summary>
         public static string HOME_HEADER_FOLLOW_ME {
@@ -178,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string NAVBAR_MENU_CONTACT_HEADER {
+            get {
+                return ResourceManager.GetString("NAVBAR_MENU_CONTACT_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accueil.
         /// </summary>
         public static string NAVBAR_MENU_HOME_HEADER {
@@ -201,15 +192,6 @@ namespace Resources {
         public static string NAVBAR_MENU_INTRODUCTION_HEADER {
             get {
                 return ResourceManager.GetString("NAVBAR_MENU_INTRODUCTION_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Contact.
-        /// </summary>
-        public static string NAVBAR_MENU_LANGUAGE_CONTACT {
-            get {
-                return ResourceManager.GetString("NAVBAR_MENU_LANGUAGE_CONTACT", resourceCulture);
             }
         }
         

@@ -158,7 +158,6 @@ E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\EntityFramework.dll
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\WebGrease.dll
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Antlr3.Runtime.dll
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.UI.WebMvc.pdb
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Newtonsoft.Json.xml
@@ -178,7 +177,6 @@ E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\PresentationWebSite.Dal.pdb
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\EntityFramework.xml
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\Antlr3.Runtime.pdb
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\ca\PresentationWebSite.UI.WebMvc.resources.dll
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\en\PresentationWebSite.UI.WebMvc.resources.dll
 E:\Docs Francois\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\es\PresentationWebSite.UI.WebMvc.resources.dll
