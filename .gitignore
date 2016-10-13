@@ -81,3 +81,7 @@ Temporary Items
 *.pdb
 *.cache
 src/PresentationWebSite.UI.WebMvc/Properties/PublishProfiles/tt.pubxml
+*.mdf
+src/PresentationWebSite.UI.WebMvc/App_Data/PresentationWebSite_log.ldf
+*.settings
+src/PresentationWebSite.UI.WebMvc/Properties/Settings.Designer.cs
