@@ -75,3 +75,9 @@ bld/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.suo
+*.suo
+*.dll
+*.pdb
+*.cache
+src/PresentationWebSite.UI.WebMvc/Properties/PublishProfiles/tt.pubxml
