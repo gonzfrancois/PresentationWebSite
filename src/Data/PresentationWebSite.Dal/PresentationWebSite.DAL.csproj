@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IPresentationDbContext.cs" />
     <Compile Include="Model\ApplicationUser.cs" />
     <Compile Include="Model\Grade.cs" />
     <Compile Include="Model\Hobby.cs" />
@@ -62,6 +63,11 @@
     <Compile Include="PresentationDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\SkillCategory.cs" />
+    <Compile Include="Repository\Base\GenericRepository.cs" />
+    <Compile Include="Repository\Base\IGenericRepository.cs" />
+    <Compile Include="UnitOfWorks\Base\IBusinessUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\Base\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWorks\BusinessUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

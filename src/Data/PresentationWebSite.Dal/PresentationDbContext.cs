@@ -4,27 +4,32 @@ using PresentationWebSite.Dal.Model;
 
 namespace PresentationWebSite.Dal
 {
-    public class PresentationDbContext : DbContext
+    public class PresentationDbContext : DbContext, IPresentationDbContext
     {
-        public DbSet<Text> Texts { get; set; }
-        public DbSet<Language> Languages { get; set; }
-        public DbSet<Grade> Grades { get; set; }
-        public DbSet<Skill> Skills { get; set; }
-        public DbSet<SkillCategory> SkillGategories { get; set; }
-        public DbSet<Work> Works { get; set; }
-        public DbSet<Job> Jobs { get; set; }
-        public DbSet<Hobby> Hobbies { get; set; }
-        public DbSet<ApplicationUser> Users { get; set; }
+        public IDbSet<Text> Texts { get; set; }
+        public IDbSet<Language> Languages { get; set; }
+        public IDbSet<Grade> Grades { get; set; }
+        public IDbSet<Skill> Skills { get; set; }
+        public IDbSet<SkillCategory> SkillGategories { get; set; }
+        public IDbSet<Work> Works { get; set; }
+        public IDbSet<Job> Jobs { get; set; }
+        public IDbSet<Hobby> Hobbies { get; set; }
+        public IDbSet<ApplicationUser> Users { get; set; }
 
-        public PresentationDbContext() : base("PresentationWebSite")
+        public PresentationDbContext(string connectionString) : base(connectionString)
         {
             Database.SetInitializer(new PresentationDbInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-           //modelBuilder.Conventions.Add<ManyToManyCascadeDeleteConvention>();
-           //modelBuilder.Conventions.Add<OneToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.Add<ManyToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.Add<OneToManyCascadeDeleteConvention>();
+        }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
         }
     }
 }

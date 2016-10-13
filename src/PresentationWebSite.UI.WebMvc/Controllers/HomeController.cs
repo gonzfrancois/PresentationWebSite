@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.Configuration;
+using System.Linq;
 using System.Web.Mvc;
 using PresentationWebSite.Dal;
+using PresentationWebSite.Dal.UnitOfWorks;
+using PresentationWebSite.Dal.UnitOfWorks.Base;
 using PresentationWebSite.UI.WebMvc.Helpers.Extensions;
 using PresentationWebSite.UI.WebMvc.Models.Common;
 using PresentationWebSite.UI.WebMvc.Models.Home;
@@ -9,11 +12,18 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 {
     public class HomeController : Controller
     {
-        private PresentationDbContext _db = new PresentationDbContext();
+        private readonly IBusinessUnitOfWork _uow = new BusinessUnitOfWork(ConfigurationManager.ConnectionStrings["PresentationWebSite"].ToString());
+
+        public HomeController() { }
+
+        public HomeController(IBusinessUnitOfWork businessUnitOfWork)
+        {
+            _uow = businessUnitOfWork;
+        }
 
         public ActionResult Index()
         {
-            var model = _db.Users.FirstOrDefault().ToDto(_db.Languages.Select(language => new TextModel() { Language = language }).ToList());
+            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
             return View(model);
         }
 
@@ -24,7 +34,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         public ActionResult Contact()
         {
-            var model = _db.Users.FirstOrDefault();
+            var model = _uow.UsersRepository.Get().FirstOrDefault();
             return View(model);
         }
 
@@ -42,7 +52,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         [ActionName("EditApplicationUser")]
         public ActionResult EditApplicationUser()
         {
-            var model = _db.Users.FirstOrDefault().ToDto(_db.Languages.Select(language => new TextModel() { Language = language }).ToList());
+            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
             model.IsEditMode = true;
             return View(nameof(Index),model);
         }
@@ -50,19 +60,27 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         [HttpPost]
         public ActionResult EditApplicationUser(ApplicationUserModel model)
         {
-            var result = model.ToDto(ref _db);
-            var original = _db.Users.FirstOrDefault(x => x.Id == model.Id);
+            var result = model.ToDto(_uow.LanguagesRepository.Get().ToList());
+            var original = _uow.UsersRepository.Get().FirstOrDefault(x => x.Id == model.Id);
             if (original != null)
             {
-                _db.Texts.RemoveRange(original.DisplayWork);
-                _db.Texts.RemoveRange(original.ApplicationUserPresentations);
-                _db.Texts.RemoveRange(original.PresentationTitleTexts);
-                _db.Texts.RemoveRange(original.PresentationSubTitleTexts);
-                _db.Users.Remove(original);
+                foreach (var text in original.DisplayWork.ToList())
+                    _uow.TextsRepository.Delete(text);
+
+                foreach (var text in original.ApplicationUserPresentations.ToList())
+                    _uow.TextsRepository.Delete(text);
+
+                foreach (var text in original.PresentationTitleTexts.ToList())
+                    _uow.TextsRepository.Delete(text);
+
+                foreach (var text in original.PresentationSubTitleTexts.ToList())
+                    _uow.TextsRepository.Delete(text);
+
+                _uow.UsersRepository.Delete(original);
             }
             
-            _db.Users.Add(result);
-            _db.SaveChanges();
+            _uow.UsersRepository.Insert(result);
+            _uow.Save();
             return RedirectToAction(nameof(Index));
         }
     }

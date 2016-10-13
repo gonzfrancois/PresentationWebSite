@@ -11,14 +11,14 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
 {
     internal static class ConvertToExtension
     {
-        internal static Grade ToDto(this GraduationModel model, ref PresentationDbContext context)
+        internal static Grade ToDto(this GraduationModel model, List<Language> languages)
         {
             var newGrade = new Grade { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
             {
                 newGrade.Texts.Add(new Text()
                 {
-                    Language = context.Languages.Find(modelText.Language.Id),
+                    Language = languages.First(x=>x.Id==modelText.Language.Id),
                     Value = modelText.Value
                 });
             }
@@ -26,14 +26,14 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newGrade;
         }
 
-        internal static SkillCategory ToDto(this SkillCategoryModel model, ref PresentationDbContext context)
+        internal static SkillCategory ToDto(this SkillCategoryModel model, List<Language> languages)
         {
             var newCategory = new SkillCategory() { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
             {
                 newCategory.Texts.Add(new Text()
                 {
-                    Language = context.Languages.Find(modelText.Language.Id),
+                    Language = languages.First(x=>x.Id==modelText.Language.Id),
                     Value = modelText.Value
                 });
             }
@@ -41,12 +41,12 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newCategory;
         }
 
-        internal static Skill ToDto(this AddSkillModel model, ref PresentationDbContext context)
+        internal static Skill ToDto(this AddSkillModel model, List<SkillCategory> skillCategories, List<Language> languages)
         {
 
             var dto = new Skill
             {
-                Category = context.SkillGategories.Find(model.CategoryId),
+                Category = skillCategories.First(x=>x.Id == model.CategoryId),
                 KnowledgePercent = model.KnowledgePercent,
                 Texts = new List<Text>()
             };
@@ -54,19 +54,19 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             {
                 dto.Texts.Add(new Text()
                 {
-                    Language = context.Languages.Find(modelText.Language.Id),
+                    Language = languages.First(x=>x.Id== modelText.Language.Id),
                     Value = modelText.Value
                 });
             }
             return dto;
         }
 
-        internal static Work ToDto(this AddWorkModel model, ref PresentationDbContext context)
+        internal static Work ToDto(this AddWorkModel model, List<Job> jobs, List<Language> languages)
         {
 
             var dto = new Work()
             {
-                Job = context.Jobs.Find(model.JobId),
+                Job = jobs.First(x=>x.Id==model.JobId),
                 DisplayPriority = model.DisplayPriority,
                 Texts = new List<Text>()
             };
@@ -74,21 +74,21 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             {
                 dto.Texts.Add(new Text()
                 {
-                    Language = context.Languages.Find(modelText.Language.Id),
+                    Language = languages.First(x=>x.Id==modelText.Language.Id),
                     Value = modelText.Value
                 });
             }
             return dto;
         }
 
-        internal static Job ToDto(this JobModel model, ref PresentationDbContext context)
+        internal static Job ToDto(this JobModel model, List<Language> languages)
         {
             var newJob = new Job() { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
             {
                 newJob.Texts.Add(new Text()
                 {
-                    Language = context.Languages.Find(modelText.Language.Id),
+                    Language = languages.First(x=>x.Id==modelText.Language.Id),
                     Value = modelText.Value
                 });
             }
@@ -100,14 +100,14 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newJob;
         }
 
-        internal static Hobby ToDto(this HobbyModel model, ref PresentationDbContext context)
+        internal static Hobby ToDto(this HobbyModel model, List<Language> languages)
         {
             var newHobby = new Hobby() { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
             {
                 newHobby.Texts.Add(new Text()
                 {
-                    Language = context.Languages.Find(modelText.Language.Id),
+                    Language = languages.First(x=>x.Id==modelText.Language.Id),
                     Value = modelText.Value
                 });
             }
@@ -115,8 +115,8 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newHobby;
         }
 
-        internal static ApplicationUser ToDto(this ApplicationUserModel model, ref PresentationDbContext context)
-        {
+        internal static ApplicationUser ToDto(this ApplicationUserModel model, List<Language> languages)
+        { 
             var result = new ApplicationUser()
             {
                 Id = model.Id,
@@ -133,7 +133,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
                 PresentationTitleTexts = new List<Text>(),
                 PresentationSubTitleTexts = new List<Text>()
             };
-            var languages = context.Languages.ToList();
+            
             model.DisplayWork.ForEach(x=> result.DisplayWork.Add(new Text() { Language = languages.First(y=> y.Id == x.Language.Id), Value = x.Value }));
             model.PresentationSubTitleTexts.ForEach(x=> result.PresentationSubTitleTexts.Add(new Text() { Language = languages.First(y=> y.Id == x.Language.Id), Value = x.Value }));
             model.PresentationTitleTexts.ForEach(x=> result.PresentationTitleTexts.Add(new Text() { Language = languages.First(y=> y.Id == x.Language.Id), Value = x.Value }));

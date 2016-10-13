@@ -24,8 +24,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "Mon bac en"},
                     new Text() {Language = ca, Value = "Mon bac ca"}
                 };
-            context.Texts.AddRange(bacTexts);
-
+            foreach (var bacText in bacTexts)
+            {
+                context.Texts.Add(bacText);
+            }
+            
             var btsTexts = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "Mon BTS fr"},
@@ -44,8 +47,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "Category 1"},
                     new Text() {Language = ca, Value = "Categoria 1"}
                 };
-            context.Texts.AddRange(cat1Txt);
-
+            foreach (var text in cat1Txt)
+            {
+                context.Texts.Add(text);
+            }
+            
             var cat2Txt = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "Categorie 2"},
@@ -53,7 +59,10 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "Category 2"},
                     new Text() {Language = ca, Value = "Categoria 2"}
                 };
-            context.Texts.AddRange(cat2Txt);
+            foreach (var text in cat2Txt)
+            {
+                context.Texts.Add(text);
+            }
 
             var sk1ATxt = new List<Text>()
                 {
@@ -62,7 +71,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "skill 1 a"},
                     new Text() {Language = ca, Value = "co 1 a"}
                 };
-            context.Texts.AddRange(sk1ATxt);
+            foreach (var text in sk1ATxt)
+            {
+                context.Texts.Add(text);
+            }
+
             var sk1BTxt = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "compétence 1 b"},
@@ -70,8 +83,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "skill 1 b"},
                     new Text() {Language = ca, Value = "co 1 b"}
                 };
-            context.Texts.AddRange(sk1BTxt);
-
+            foreach (var text in sk1BTxt)
+            {
+                context.Texts.Add(text);
+            }
+            
             var sk2ATxt = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "compétence 2 a"},
@@ -79,7 +95,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "skill 2 a"},
                     new Text() {Language = ca, Value = "co 2 a"}
                 };
-            context.Texts.AddRange(sk2ATxt);
+            foreach (var text in sk2ATxt)
+            {
+                context.Texts.Add(text);
+            }
+            
             var sk2BTxt = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "compétence 2 b"},
@@ -87,8 +107,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "skill 2 b"},
                     new Text() {Language = ca, Value = "co 2 b"}
                 };
-            context.Texts.AddRange(sk2BTxt);
-
+            foreach (var text in sk2BTxt)
+            {
+                context.Texts.Add(text);
+            }
+            
             var cat1 = new SkillCategory() {DisplayPriority = 0, Texts = cat1Txt};
             var cat2 = new SkillCategory() {DisplayPriority = 0, Texts = cat2Txt};
             context.SkillGategories.Add(cat1);
@@ -112,8 +135,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "work1 en"},
                     new Text() {Language = ca, Value = "work1 ca"}
                 };
-            context.Texts.AddRange(work1Texts);
-
+            foreach (var text in work1Texts)
+            {
+                context.Texts.Add(text);
+            }
+            
             var work2Texts = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "work2 fr"},
@@ -121,8 +147,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "work2 en"},
                     new Text() {Language = ca, Value = "work2 ca"}
                 };
-            context.Texts.AddRange(work2Texts);
-
+            foreach (var text in work2Texts)
+            {
+                context.Texts.Add(text);
+            }
+            
             var work3Texts = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "work3 fr"},
@@ -130,8 +159,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "work3 en"},
                     new Text() {Language = ca, Value = "work3 ca"}
                 };
-            context.Texts.AddRange(work3Texts);
-
+            foreach (var text in work3Texts)
+            {
+                context.Texts.Add(text);
+            }
+            
             var work4Texts = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "work4 fr"},
@@ -139,8 +171,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "work4 en"},
                     new Text() {Language = ca, Value = "work4 ca"}
                 };
-            context.Texts.AddRange(work4Texts);
-
+            foreach (var text in work4Texts)
+            {
+                context.Texts.Add(text);
+            }
+            
             var work1 = new Work()
             {
                 DisplayPriority = 0,
@@ -176,8 +211,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "job1 en"},
                     new Text() {Language = ca, Value = "job1 ca"}
                 };
-            context.Texts.AddRange(job1Texts);
-
+            foreach (var text in job1Texts)
+            {
+                context.Texts.Add(text);
+            }
+            
             var job2Texts = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "job2 fr"},
@@ -185,7 +223,10 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "job2 en"},
                     new Text() {Language = ca, Value = "job2 ca"}
                 };
-            context.Texts.AddRange(job2Texts);
+            foreach (var text in job2Texts)
+            {
+                context.Texts.Add(text);
+            }
 
             var job1 = new Job()
             {
@@ -211,8 +252,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "hobby1 en"},
                     new Text() {Language = ca, Value = "hobby1 ca"}
                 };
-            context.Texts.AddRange(hobby1Texts);
-
+            foreach (var text in hobby1Texts)
+            {
+                context.Texts.Add(text);
+            }
+            
             var hobby2Texts = new List<Text>()
                 {
                     new Text() {Language = fr, Value = "hobby2 fr"},
@@ -220,8 +264,11 @@ namespace PresentationWebSite.Dal
                     new Text() {Language = en, Value = "hobby2 en"},
                     new Text() {Language = ca, Value = "hobby2 ca"}
                 };
-            context.Texts.AddRange(hobby2Texts);
-
+            foreach (var text in hobby2Texts)
+            {
+                context.Texts.Add(text);
+            }
+            
             var hobby1 = new Hobby() { Texts = hobby1Texts};
             context.Hobbies.Add(hobby1);
 
