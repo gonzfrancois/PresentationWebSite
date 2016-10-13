@@ -12,9 +12,12 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 {
     public class IntroductionController : Controller
     {
-        private readonly IBusinessUnitOfWork _uow = new BusinessUnitOfWork(ConfigurationManager.ConnectionStrings["PresentationWebSite"].ToString());
+        private readonly IBusinessUnitOfWork _uow;
 
-        public IntroductionController() { }
+        public IntroductionController()
+        {
+            _uow = new BusinessUnitOfWork(ConfigurationManager.ConnectionStrings["PresentationWebSite"].ToString());
+        }
 
         public IntroductionController(IBusinessUnitOfWork businessUnitOfWork)
         {

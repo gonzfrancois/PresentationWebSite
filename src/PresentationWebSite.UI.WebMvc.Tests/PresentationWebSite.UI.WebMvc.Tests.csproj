@@ -92,6 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\PresentationWebSite.Dal\PresentationWebSite.DAL.csproj">
+      <Project>{6136432E-4459-4571-B031-5A9A195A5CDD}</Project>
+      <Name>PresentationWebSite.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PresentationWebSite.UI.WebMvc\PresentationWebSite.UI.WebMvc.csproj">
       <Project>{0AE294F6-2F45-4E77-ADF1-9FD6EE591EC7}</Project>
       <Name>PresentationWebSite.UI.WebMvc</Name>
