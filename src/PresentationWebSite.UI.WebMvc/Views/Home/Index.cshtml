@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using PresentationWebSite.UI.WebMvc.Helpers.Extensions
 @model PresentationWebSite.UI.WebMvc.Models.Home.ApplicationUserModel
 @{
     ViewBag.Title = Model.FirstName + " " + Model.FamilyName + " - " + Model.DisplayWork.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
@@ -7,7 +8,7 @@
 
 <div class="jumbotron">
     <h1>@Model.FirstName @Model.FamilyName</h1>
-    <h2>@(Model.DisplayWork.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</h2>
+    <h2>@(Model.DisplayWork.GetText(CultureInfo.CurrentUICulture))</h2>
 </div>
 
 <div class="row panel">
@@ -27,9 +28,9 @@
                                     @Html.ActionLink("Edit", "EditApplicationUser")
                                 }
                             }
-                            @(Model.PresentationTexts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
-                            <h3>@(Model.PresentationSubTitleTexts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</h3>
-                            <h2>@(Model.PresentationTitleTexts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</h2>
+                            @(Model.PresentationTexts.GetText(CultureInfo.CurrentUICulture))
+                            <h3>@(Model.PresentationSubTitleTexts.GetText(CultureInfo.CurrentUICulture))</h3>
+                            <h2>@(Model.PresentationTitleTexts.GetText(CultureInfo.CurrentUICulture))</h2>
                         </blockquote>
                     </div>
                 </div>
@@ -63,7 +64,10 @@
                                             <br />
                                             @Html.LabelFor(m => m.FamilyName)
                                             @Html.EditorFor(m => m.FamilyName)
-                                            <br />
+                                            <br/>
+                                            @Html.LabelFor(m=>m.Email)
+                                            @Html.EditorFor(m=>m.Email)
+                                            <br/>
                                             @Html.LabelFor(m => m.PhoneNumber)
                                             @Html.EditorFor(m => m.PhoneNumber)
                                             <br />

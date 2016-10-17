@@ -234,7 +234,6 @@ E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\bin\Mi
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.csprojResolveAssemblyReference.cache
-E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.Resources.Global.resources
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.Resources.Global.es.resources
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.Resources.Global.en.resources
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.Resources.Global.ca.resources
@@ -244,3 +243,7 @@ E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\De
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\ca\PresentationWebSite.UI.WebMvc.resources.dll
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.dll
 E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.pdb
+E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.Resources.Global.resources
+E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\bin\fr\PresentationWebSite.UI.WebMvc.resources.dll
+E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\PresentationWebSite.UI.WebMvc.Resources.Global.fr.resources
+E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc\obj\Debug\fr\PresentationWebSite.UI.WebMvc.resources.dll

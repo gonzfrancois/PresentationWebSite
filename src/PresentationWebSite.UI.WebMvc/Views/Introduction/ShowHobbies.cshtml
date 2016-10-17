@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using PresentationWebSite.UI.WebMvc.Helpers.Extensions
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.HobbiesModel
 
 @{
@@ -12,7 +13,7 @@
     {
         <li class="list-group-item">
             <div>
-                @(hobby.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                @(hobby.Texts.GetText(CultureInfo.CurrentUICulture))
                 @{
                     if (isAdmin)
                     {

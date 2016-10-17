@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using PresentationWebSite.UI.WebMvc.Helpers.Extensions
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.JobsModel
 
 @{
@@ -13,7 +14,7 @@
         <li class="list-group-item">
             <span class="label label-default">@(job.StarterDate.ToString("Y")) - @(job.EndDate?.ToString("Y"))</span>
             <h2>
-                @(job.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                @(job.Texts.GetText(CultureInfo.CurrentUICulture))
                 @{
                     if (isAdmin)
                     {
@@ -26,7 +27,7 @@
                     foreach (var work in job.Works.OrderByDescending(x => x.DisplayPriority))
                     {
                         <li>
-                            @(work.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                            @(work.Texts.GetText(CultureInfo.CurrentUICulture))
                             @{
                                 if (isAdmin)
                                 {

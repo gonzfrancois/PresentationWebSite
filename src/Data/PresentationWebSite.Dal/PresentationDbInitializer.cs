@@ -4,7 +4,7 @@ using PresentationWebSite.Dal.Model;
 
 namespace PresentationWebSite.Dal
 {
-    internal class PresentationDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<PresentationDbContext>
+    internal class PresentationDbInitializer : System.Data.Entity.CreateDatabaseIfNotExists<PresentationDbContext>
     {
         protected override void Seed(PresentationDbContext context)
         {

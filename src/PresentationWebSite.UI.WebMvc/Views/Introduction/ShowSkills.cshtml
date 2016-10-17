@@ -1,4 +1,6 @@
 ﻿@using System.Globalization
+@using PresentationWebSite.UI.WebMvc.Helpers.Extensions
+
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.SkillCategoriesModel
 
 @{
@@ -11,7 +13,7 @@
     @foreach (var skillCategory in @Model.Categories.OrderBy(x => x.DisplayPriority))
     {
         <li class="list-group-item">
-            <div>@(skillCategory.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)</div>
+            <div>@(skillCategory.Texts.GetText(CultureInfo.CurrentUICulture))</div>
             @{
                 if (isAdmin)
                 {
@@ -24,7 +26,7 @@
                     {
                         <li>
                             <div class="container">
-                                @(skill.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                                @(skill.Texts.GetText(CultureInfo.CurrentUICulture))
                                 @{
                                     if (isAdmin)
                                     {

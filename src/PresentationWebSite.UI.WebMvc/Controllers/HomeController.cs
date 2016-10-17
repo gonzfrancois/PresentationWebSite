@@ -37,7 +37,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         public ActionResult Contact()
         {
-            var model = _uow.UsersRepository.Get().FirstOrDefault();
+            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
             return View(model);
         }
 

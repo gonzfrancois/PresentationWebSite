@@ -23,7 +23,7 @@ namespace PresentationWebSite.UI.WebMvc.AppCode
             if (lang == DefaultLanguage) return DependencyResolver.Current.GetService(controllerType) as IController;
             try
             {
-                Thread.CurrentThread.CurrentCulture =
+                Thread.CurrentThread.CurrentUICulture =
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
             }
             catch (Exception)

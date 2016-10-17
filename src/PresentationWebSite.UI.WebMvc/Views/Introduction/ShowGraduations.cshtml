@@ -1,4 +1,6 @@
 ﻿@using System.Globalization
+@using PresentationWebSite.UI.WebMvc.Helpers.Extensions
+
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.GraduationsModel
 
 @{
@@ -13,7 +15,7 @@
         <li class="list-group-item">
             <span class="label label-default">@(grade.ObtainingDateTime.Year)</span>
             <div>
-                @(grade.Texts.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value)
+                @(grade.Texts.GetText(CultureInfo.CurrentUICulture))
                 @{
                     if (isAdmin)
                     {
