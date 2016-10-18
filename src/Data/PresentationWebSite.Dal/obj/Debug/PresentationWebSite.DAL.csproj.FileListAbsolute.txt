@@ -17,7 +17,6 @@ C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWeb
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.xml
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.dll.config
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.dll
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\PresentationWebSite.Dal.pdb
@@ -28,3 +27,4 @@ E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Deb
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.dll
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.pdb
+C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache
