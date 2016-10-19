@@ -1,5 +1,8 @@
 ﻿@using System.Globalization
+@using System.Runtime.Serialization.Json
+@using System.Web.Script.Serialization
 @using PresentationWebSite.UI.WebMvc.Helpers.Extensions
+@using PresentationWebSite.UI.WebMvc.Models.Introduction
 
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.SkillCategoriesModel
 
@@ -9,49 +12,73 @@
     bool isAdmin = User.IsInRole("Administrator");
 }
 
-<ul class="list-group">
-    @foreach (var skillCategory in @Model.Categories.OrderBy(x => x.DisplayPriority))
-    {
-        <li class="list-group-item">
-            <div>@(skillCategory.Texts.GetText(CultureInfo.CurrentUICulture))</div>
-            @{
-                if (isAdmin)
-                {
-                    <span>@Html.ActionLink("Delete", "DeleteSkillCategory", new { skillCategoryId = skillCategory.Id })</span>
-                }
-            }
-            <ul>
-                @{
-                    foreach (var skill in skillCategory.Skills.OrderByDescending(x => x.KnowledgePercent))
-                    {
-                        <li>
-                            <div class="container">
-                                @(skill.Texts.GetText(CultureInfo.CurrentUICulture))
-                                @{
-                                    if (isAdmin)
-                                    {
-                                        <span>@Html.ActionLink("Delete", "DeleteSkill", new { skillId = skill.Id })</span>
-                                    }
-                                }
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="@(skill.KnowledgePercent)" aria-valuemin="0" aria-valuemax="100" style="width:@(skill.KnowledgePercent)%">
-                                        <span class="sr-only">@(skill.KnowledgePercent.ToString())% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    }
-                    if (isAdmin)
-                    {
-                        <li>@Html.ActionLink("Add", "AddSkill", new { skillCategoryId = skillCategory.Id })</li>
-                    }
-                }
-            </ul>
-        </li>
-                    }
-    @{if (isAdmin)
-        {
-            <li>@Html.ActionLink("Add", "AddSkillCategory")</li>
-        }
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
+<script type="text/javascript">
+    @{
+        MemoryStream stream1 = new MemoryStream();
+        DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(ChartPie));
+        ser.WriteObject(stream1, Model.ChartDatas);
+        stream1.Position = 0;
+        StreamReader sr = new StreamReader(stream1);
+        var chart = sr.ReadToEnd();
     }
-</ul>
+
+    FusionCharts.ready(function () {
+            var fusioncharts = new FusionCharts({
+                type: 'multilevelpie',
+                renderAt: 'chart-container',
+                id: "skillChart",
+                width: document.getElementById("chart-container").offsetWidth,
+                height: '@(Request.Browser.IsMobileDevice ? "300":"500")',
+                dataFormat: 'json',
+                dataSource: @Html.Raw(chart)
+            }
+        );
+        fusioncharts.render();
+    });
+    
+    window.onresize = function() {
+        var cont = document.getElementById("chart-container");
+        document.getElementById('skillChart').resizeTo(cont.offsetWidth, cont.offsetHeight);    
+    };
+</script>
+<div id="chart-container" class="col-lg-9 col-md-9 col-sm-12">Chart will load here!</div>
+@{
+    if (isAdmin)
+    {
+        <div class="col-lg-12 col-md-10 col-sm-12">
+            <ul class="list-group">
+                @foreach (var skillCategory in @Model.Categories.OrderBy(x => x.DisplayPriority))
+                {
+                    <li class="list-group-item">
+                        <div>@(skillCategory.Texts.GetText(CultureInfo.CurrentUICulture))</div>
+                        @{
+                            <span>@Html.ActionLink("Delete", "DeleteSkillCategory", new { skillCategoryId = skillCategory.Id })</span>
+                        }
+                        <ul>
+                            @{
+                                foreach (var skill in skillCategory.Skills.OrderByDescending(x => x.KnowledgePercent))
+                                {
+                                    <li>
+                                        <div class="container">
+                                            @(skill.Texts.GetText(CultureInfo.CurrentUICulture))
+                                            <span>@Html.ActionLink("Delete", "DeleteSkill", new { skillId = skill.Id })</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="@(skill.KnowledgePercent)" aria-valuemin="0" aria-valuemax="100" style="width: @(skill.KnowledgePercent)%">
+                                                    <span class="sr-only">@(skill.KnowledgePercent.ToString())% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                                <li>@Html.ActionLink("Add", "AddSkill", new { skillCategoryId = skillCategory.Id })</li>
+                            }
+                        </ul>
+                    </li>
+                                }
+                <li>@Html.ActionLink("Add", "AddSkillCategory")</li>
+            </ul>
+        </div>
+                                }
+}
