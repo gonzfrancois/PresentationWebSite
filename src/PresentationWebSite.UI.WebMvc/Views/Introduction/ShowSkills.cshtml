@@ -12,8 +12,7 @@
     bool isAdmin = User.IsInRole("Administrator");
 }
 
-<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
-<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
+@Scripts.Render("~/bundles/fusioncharts")
 <script type="text/javascript">
     @{
         MemoryStream stream1 = new MemoryStream();

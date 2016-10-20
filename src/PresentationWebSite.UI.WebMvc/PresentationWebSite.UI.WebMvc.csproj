@@ -179,8 +179,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="AppCode\LocalizedControllerActivator.cs" />
+    <Compile Include="Helpers\Extensions\ColorExtension.cs" />
     <Compile Include="Helpers\Extensions\ConvertToExtension.cs" />
     <Compile Include="Helpers\Extensions\TranslationExtension.cs" />
+    <Compile Include="Helpers\Utilities.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Common\TextModel.cs" />
     <Compile Include="Models\Home\ApplicationUserModel.cs" />
@@ -244,6 +246,9 @@
     <None Include="Properties\PublishProfiles\manual.pubxml" />
     <None Include="Properties\PublishProfiles\tt.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\fusioncharts\fusioncharts.js" />
+    <Content Include="Scripts\fusioncharts\fusioncharts.powercharts.js" />
+    <Content Include="Scripts\fusioncharts\fusioncharts.theme.fint.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

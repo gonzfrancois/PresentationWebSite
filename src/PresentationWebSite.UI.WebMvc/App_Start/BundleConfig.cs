@@ -23,6 +23,12 @@ namespace PresentationWebSite.UI.WebMvc
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+
+            bundles.Add(new ScriptBundle("~/bundles/fusioncharts").Include(
+                "~/Scripts/fusioncharts/fusioncharts.js",
+                "~/Scripts/fusioncharts/fusioncharts.powercharts.js",
+                "~/Scripts/fusioncharts/fusioncharts.theme.fint.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/flags.css"));

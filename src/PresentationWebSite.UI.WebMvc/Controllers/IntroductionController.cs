@@ -4,10 +4,13 @@ using System.Configuration;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Web.Mvc;
 using PresentationWebSite.Dal.Model;
 using PresentationWebSite.Dal.UnitOfWorks;
 using PresentationWebSite.Dal.UnitOfWorks.Base;
+using PresentationWebSite.UI.WebMvc.Helpers;
 using PresentationWebSite.UI.WebMvc.Helpers.Extensions;
 using PresentationWebSite.UI.WebMvc.Models.Common;
 using PresentationWebSite.UI.WebMvc.Models.Introduction;
@@ -153,37 +156,49 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
                     }
                 }
             };
-            
-            Func<SkillCategory, Color> getColorFromPalette = sk => skills.Palette[skills.Categories.ToList().IndexOf(sk)];
-            Func<Color, string> getHexaColorString = c => "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
-            //We move on chromatic circle to create new color
-            Func<int, int> getNewColor = v => (int)Math.Round(Math.Abs(Math.Sin(v)*255), 0);
 
+            Func<SkillCategory, Color> getColorFromPalette = sk => skills.Palette[skills.Categories.ToList().IndexOf(sk)];
+            
             while (skills.Palette.Count < skills.Categories.Count)
             {
-                var lastColor = skills.Palette.Last();
-                var color = Color.FromArgb(1, getNewColor(lastColor.R), getNewColor(lastColor.G), getNewColor(lastColor.B));
-                skills.Palette.Add(color);
+                skills.Palette.Add(skills.Palette.Last().GetNextColor());
             }
 
             skills.ChartDatas.Slices = new List<ChartPieSlice>();
+            
+            Func<string, string> getAbbrText = t =>
+                                               {
+                                                   var result = new StringBuilder();
+                                                   if (t.Length > 10 && t.Contains("."))
+                                                   {
+                                                       foreach (var ch in t.Split('.')[0])
+                                                           if (char.IsUpper(ch))
+                                                               result.Append(ch);
 
-            skills.ChartDatas.Slices = skills.Categories.Select(x => new ChartPieSlice()
+                                                       result.Append('.');
+                                                       for (var i = 1; i < t.Split('.').Length; i++)
+                                                           result.Append(t.Split('.')[i]);
+                                                   }
+                                                   else
+                                                       result.Append(t.Replace(" ", "{br}"));
+                                                   return result.ToString();
+                                               };
+
+
+            skills.ChartDatas.Slices = skills.Categories.OrderByDescending(sc => sc.Skills.Count).Select(x => new ChartPieSlice()
             {
                 Label = x.Texts.GetText(CultureInfo.CurrentUICulture),
-                Color = getHexaColorString(getColorFromPalette(x)),
-                Value = skills.Categories.Count > 0 ? skills.Categories.Count : 1,
+                Color = getColorFromPalette(x).GetHexValue(),
+                Value = skills.Categories.Count > 0 ? x.Skills.Count : 1, //skills.Categories.Count : 1,
                 ToolTip = x.Texts.GetText(CultureInfo.CurrentUICulture),
-                Slices = new List<ChartPieSlice>(x.Skills.Select(y => new ChartPieSlice()
+                Slices = new List<ChartPieSlice>(x.Skills.OrderByDescending(s => Math.Sin(s.Texts.GetText(CultureInfo.CurrentUICulture).Length)).Select(y => new ChartPieSlice()
                 {
-                    Label = y.Texts.GetText(CultureInfo.CurrentUICulture),
-                    Color = getHexaColorString(getColorFromPalette(x)),
+                    Label = getAbbrText(y.Texts.GetText(CultureInfo.CurrentUICulture)),
+                    Color = getColorFromPalette(x).GetHexValue(),
                     Value = y.KnowledgePercent,
-                    ToolTip = y.Texts.GetText(CultureInfo.CurrentUICulture)
+                    ToolTip = y.Texts.GetText(CultureInfo.CurrentUICulture) + " "+ Utilities.GetGlyphiconStarsFromPercents(y.KnowledgePercent,5)
                 }))
             });
-
-
             return View(skills);
         }
 
