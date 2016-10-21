@@ -85,3 +85,9 @@ src/PresentationWebSite.UI.WebMvc/Properties/PublishProfiles/tt.pubxml
 src/PresentationWebSite.UI.WebMvc/App_Data/PresentationWebSite_log.ldf
 *.settings
 src/PresentationWebSite.UI.WebMvc/Properties/Settings.Designer.cs
+bin
+obj
+bin
+obj
+bin
+obj
