@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using PresentationWebSite.UI.WebMvc.Models.Common;
 
 namespace PresentationWebSite.UI.WebMvc.Models.Introduction
@@ -11,6 +12,8 @@ namespace PresentationWebSite.UI.WebMvc.Models.Introduction
     {
         public override IntroductionChildTab ActiveTab => IntroductionChildTab.Hobby;
         public IList<TextModel> Texts { get; set; }
+        
+        public HttpPostedFileBase Picture { get; set; }
         //public byte[] Content { get; set; }
     }
 }

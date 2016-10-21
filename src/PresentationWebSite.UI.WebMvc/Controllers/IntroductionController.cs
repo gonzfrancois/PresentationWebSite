@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 using PresentationWebSite.Dal.Model;
 using PresentationWebSite.Dal.UnitOfWorks;
@@ -134,27 +133,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             var skills = new SkillCategoriesModel
             {
                 Categories = _uow.SkillCategoriesRepository.Get().ToList(),
-                ChartDatas = new ChartPie
-                {
-                    Infos = new CharPieInfo()
-                    {
-                        ValueFontSize = 12,
-                        ValueFontColor = "#FFFFFF",
-                        ValueBgColor = "#000000",
-                        ValueBgAlpha = 50,
-                        ValueBorderRadius = 5,
-                        ShowPlotBorder = 1,
-                        PieFillAlpha = 100,
-                        Pieborderthickness = 2,
-                        Palette = 1,
-                        Hoverfillcolor = "#CCCCCC",
-                        PlotFillHoverAlpha = 30,
-                        Piebordercolor = "#FFFFFF",
-                        Numberprefix = "$",
-                        PlotToolText = "$label, $$valueK, $percentValue",
-                        Theme = "fint"
-                    }
-                }
+                ChartDatas = new ChartPie()
             };
 
             Func<SkillCategory, Color> getColorFromPalette = sk => skills.Palette[skills.Categories.ToList().IndexOf(sk)];
@@ -166,25 +145,6 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
             skills.ChartDatas.Slices = new List<ChartPieSlice>();
             
-            Func<string, string> getAbbrText = t =>
-                                               {
-                                                   var result = new StringBuilder();
-                                                   if (t.Length > 10 && t.Contains("."))
-                                                   {
-                                                       foreach (var ch in t.Split('.')[0])
-                                                           if (char.IsUpper(ch))
-                                                               result.Append(ch);
-
-                                                       result.Append('.');
-                                                       for (var i = 1; i < t.Split('.').Length; i++)
-                                                           result.Append(t.Split('.')[i]);
-                                                   }
-                                                   else
-                                                       result.Append(t.Replace(" ", "{br}"));
-                                                   return result.ToString();
-                                               };
-
-
             skills.ChartDatas.Slices = skills.Categories.OrderByDescending(sc => sc.Skills.Count).Select(x => new ChartPieSlice()
             {
                 Label = x.Texts.GetText(CultureInfo.CurrentUICulture),
@@ -193,10 +153,10 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
                 ToolTip = x.Texts.GetText(CultureInfo.CurrentUICulture),
                 Slices = new List<ChartPieSlice>(x.Skills.OrderByDescending(s => Math.Sin(s.Texts.GetText(CultureInfo.CurrentUICulture).Length)).Select(y => new ChartPieSlice()
                 {
-                    Label = getAbbrText(y.Texts.GetText(CultureInfo.CurrentUICulture)),
+                    Label = y.Texts.GetText(CultureInfo.CurrentUICulture),
                     Color = getColorFromPalette(x).GetHexValue(),
                     Value = y.KnowledgePercent,
-                    ToolTip = y.Texts.GetText(CultureInfo.CurrentUICulture) + " "+ Utilities.GetGlyphiconStarsFromPercents(y.KnowledgePercent,5)
+                    ToolTip = y.Texts.GetText(CultureInfo.CurrentUICulture) + " " + Utilities.GetGlyphiconStarsFromPercents(y.KnowledgePercent,5)
                 }))
             });
             return View(skills);

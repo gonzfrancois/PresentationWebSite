@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using PresentationWebSite.Dal;
+using System.Web.Helpers;
 using PresentationWebSite.Dal.Model;
 using PresentationWebSite.UI.WebMvc.Models.Common;
 using PresentationWebSite.UI.WebMvc.Models.Home;
@@ -111,7 +111,14 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
                     Value = modelText.Value
                 });
             }
-            //newHobby.Content = model.Content;
+
+            if (model.Picture == null) return newHobby;
+
+            var img = new WebImage(model.Picture.InputStream);
+            if (img.Width != 350 || img.Height != 200)
+                img.Resize(350, 200, false);
+            
+            newHobby.Content = img.GetBytes();
             return newHobby;
         }
 

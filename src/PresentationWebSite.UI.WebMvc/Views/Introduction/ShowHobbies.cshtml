@@ -7,26 +7,34 @@
     ViewBag.Title = @Resources.Global.INTRODUCTION_HEADER_HOBBIES;
     bool isAdmin = User.IsInRole("Administrator");
 }
-
-<ul class="list-group">
     @foreach (var hobby in @Model.Hobbies)
     {
-        <li class="list-group-item">
-            <div>
-                @(hobby.Texts.GetText(CultureInfo.CurrentUICulture))
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            @{
+                if (isAdmin)
+                {
+                    <span>@(Html.ActionLink("Delete", "DeleteHobby", new { hobbyId = hobby.Id }))</span>
+                }
+            }
+            <div class="hovereffect">
                 @{
-                    if (isAdmin)
+                    var b64Img = "";
+                    if (hobby.Content != null)
                     {
-                        <span>@(Html.ActionLink("Delete", "DeleteHobby", new { hobbyId = hobby.Id }))</span>
+                        b64Img = "data:image/jpeg;base64," + Convert.ToBase64String(hobby.Content);
                     }
                 }
+                <img class="hobby-img-responsive" src="@b64Img" alt="@hobby.Texts.GetText(CultureInfo.CurrentUICulture)">
+                <div class="overlay">
+                    <h2>@(hobby.Texts.GetText(CultureInfo.CurrentUICulture))</h2>
+                </div>
             </div>
-        </li>
-                    }
+        </div>
+    }
     @{
         if (isAdmin)
         {
             <li>@Html.ActionLink("Add", "AddHobby")</li>
         }
     }
-</ul>
+

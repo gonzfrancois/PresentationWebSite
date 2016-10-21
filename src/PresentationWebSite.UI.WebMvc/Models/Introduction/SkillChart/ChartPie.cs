@@ -10,5 +10,10 @@ namespace PresentationWebSite.UI.WebMvc.Models.Introduction.SkillChart
         public CharPieInfo Infos { get; set; }
         [DataMember(Name = "category")]
         public IEnumerable<ChartPieSlice> Slices { get; set; }
+
+        public ChartPie()
+        {
+            Infos = new CharPieInfo();
+        }
     }
 }

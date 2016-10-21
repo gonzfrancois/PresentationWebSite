@@ -31,7 +31,8 @@ namespace PresentationWebSite.UI.WebMvc
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/flags.css"));
+                      "~/Content/flags.css",
+                      "~/Content/Site.css"));
         }
     }
 }

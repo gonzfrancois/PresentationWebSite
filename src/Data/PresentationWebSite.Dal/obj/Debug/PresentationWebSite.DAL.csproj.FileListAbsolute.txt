@@ -27,4 +27,3 @@ E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Deb
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.dll
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.pdb
-C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache

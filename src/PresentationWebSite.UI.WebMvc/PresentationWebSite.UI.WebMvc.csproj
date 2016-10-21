@@ -196,7 +196,9 @@
     <Compile Include="Models\Introduction\IntroductionModelBase.cs" />
     <Compile Include="Models\Introduction\JobModel.cs" />
     <Compile Include="Models\Introduction\JobsModel.cs" />
-    <Compile Include="Models\Introduction\ShowSkillsInChartModel.cs" />
+    <Compile Include="Models\Introduction\SkillChart\CharPieInfo.cs" />
+    <Compile Include="Models\Introduction\SkillChart\ChartPie.cs" />
+    <Compile Include="Models\Introduction\SkillChart\ChartPieSlice.cs" />
     <Compile Include="Models\Introduction\SkillCategoriesModel.cs" />
     <Compile Include="Models\Introduction\SkillCategoryModel.cs" />
     <Compile Include="Models\Introduction\SkillModel.cs" />

@@ -62,5 +62,26 @@ namespace PresentationWebSite.UI.WebMvc.Models.Introduction.SkillChart
         public string ValueFontColor { get; set; }
         [DataMember(Name = "valueBorderRadius")]
         public int ValueBorderRadius { get; set; }
+
+        public CharPieInfo()
+        {
+            //Set default values
+            ValueFontSize = 12;
+            ValueFontColor = "#FFFFFF";
+            ValueBgColor = "#000000";
+            ValueBgAlpha = 50;
+            ValueBorderRadius = 5;
+            ShowPlotBorder = 1;
+            PieFillAlpha = 100;
+            Pieborderthickness = 2;
+            Palette = 1;
+            Hoverfillcolor = "#CCCCCC";
+            PlotFillHoverAlpha = 30;
+            Piebordercolor = "#FFFFFF";
+            Numberprefix = "$";
+            PlotToolText = "$label";
+            Theme = "fint";
+        }
+        
     }
 }

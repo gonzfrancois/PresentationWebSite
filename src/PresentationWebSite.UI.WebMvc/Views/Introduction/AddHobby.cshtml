@@ -8,9 +8,13 @@
 
 <h2>@Resources.Global.INTRODUCTION_ADD_HOBBY_HEADER</h2>
 @{
-    using (Html.BeginForm("AddHobby", "Introduction", FormMethod.Post, new { model = Model }))
+    using (Html.BeginForm("AddHobby", "Introduction", FormMethod.Post, new { model = Model, enctype = "multipart/form-data" }))
     {
         @Html.EditorFor(m => m.Texts, "IEnumerableText")
+
+        <label for="Picture">Upload Image:</label>
+        <input type="file" name="Picture" id="Picture" style="width: 100%;" />
+
         <input type="submit" value="Save" />
         <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
     }
