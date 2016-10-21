@@ -81,33 +81,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    @{
-        if (Request.Browser.IsMobileDevice)
-        {
-            <script type="text/javascript">
-                (function($) {
-                    $(document)
-                        .ready(function() {
-                            $(".navbar-brand").hide();
-                            $(function() {
-                                $(window)
-                                    .scroll(function () {
-                                        //user have to scroll more than 100px and if page is reloaded check if is was scrolled more than 100px
-                                        if ($(this).scrollTop() > 100 || $(this).scrollY > 100) {
-                                            $('.navbar-brand').fadeIn();
-                                        } else {
-                                            $('.navbar-brand').fadeOut();
-                                        }
-                                    });
-                            });
 
-                        });
-                }(jQuery));
-            </script>
-        }
-    }
 </body>
 </html>
