@@ -10,11 +10,10 @@ namespace PresentationWebSite.UI.WebMvc.Helpers
     {
         public static string GetGlyphiconStarsFromPercents(int percent, int maxNumberOfStars)
         {
-            var value = percent*maxNumberOfStars/100;
             var result = new StringBuilder();
             for (var i = 0; i < maxNumberOfStars; i++)
             {
-                result.Append(value < i
+                result.Append(i < percent * maxNumberOfStars / 100
                     ? "<span class='glyphicon glyphicon-star'></span>"
                     : "<span class='glyphicon glyphicon-star-empty'></span>");
             }

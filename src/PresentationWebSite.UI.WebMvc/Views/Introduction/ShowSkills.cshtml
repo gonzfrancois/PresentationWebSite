@@ -3,6 +3,7 @@
 @using System.Web.Script.Serialization
 @using PresentationWebSite.UI.WebMvc.Helpers.Extensions
 @using PresentationWebSite.UI.WebMvc.Models.Introduction
+@using PresentationWebSite.UI.WebMvc.Models.Introduction.SkillChart
 
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.SkillCategoriesModel
 
@@ -29,7 +30,7 @@
                 renderAt: 'chart-container',
                 id: "skillChart",
                 width: document.getElementById("chart-container").offsetWidth,
-                height: '@(Request.Browser.IsMobileDevice ? "300":"500")',
+                height: document.getElementById("chart-container").offsetWidth,
                 dataFormat: 'json',
                 dataSource: @Html.Raw(chart)
             }
@@ -39,10 +40,10 @@
     
     window.onresize = function() {
         var cont = document.getElementById("chart-container");
-        document.getElementById('skillChart').resizeTo(cont.offsetWidth, cont.offsetHeight);    
+        document.getElementById('skillChart').resizeTo(cont.offsetWidth, cont.offsetWidth);    
     };
 </script>
-<div id="chart-container" class="col-lg-9 col-md-9 col-sm-12">Chart will load here!</div>
+<div id="chart-container" class="col-md-12 col-sm-12">Chart will load here!</div>
 @{
     if (isAdmin)
     {

@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Web.Mvc;
 using PresentationWebSite.Dal.Model;
@@ -14,6 +13,7 @@ using PresentationWebSite.UI.WebMvc.Helpers;
 using PresentationWebSite.UI.WebMvc.Helpers.Extensions;
 using PresentationWebSite.UI.WebMvc.Models.Common;
 using PresentationWebSite.UI.WebMvc.Models.Introduction;
+using PresentationWebSite.UI.WebMvc.Models.Introduction.SkillChart;
 
 namespace PresentationWebSite.UI.WebMvc.Controllers
 {
@@ -189,7 +189,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             {
                 Label = x.Texts.GetText(CultureInfo.CurrentUICulture),
                 Color = getColorFromPalette(x).GetHexValue(),
-                Value = skills.Categories.Count > 0 ? x.Skills.Count : 1, //skills.Categories.Count : 1,
+                Value = skills.Categories.Count > 0 ? x.Skills.Count : 1,
                 ToolTip = x.Texts.GetText(CultureInfo.CurrentUICulture),
                 Slices = new List<ChartPieSlice>(x.Skills.OrderByDescending(s => Math.Sin(s.Texts.GetText(CultureInfo.CurrentUICulture).Length)).Select(y => new ChartPieSlice()
                 {
