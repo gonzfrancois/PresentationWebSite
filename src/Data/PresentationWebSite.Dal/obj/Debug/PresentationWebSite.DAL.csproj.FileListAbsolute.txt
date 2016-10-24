@@ -24,6 +24,5 @@ E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Deb
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.dll
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.xml
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\bin\Debug\EntityFramework.SqlServer.xml
-E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.DAL.csprojResolveAssemblyReference.cache
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.dll
 E:\Documents\GitHub\PresentationWebSite\src\Data\PresentationWebSite.Dal\obj\Debug\PresentationWebSite.Dal.pdb

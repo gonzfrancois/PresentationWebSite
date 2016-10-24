@@ -188,3 +188,6 @@ E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\fr\PresentationWebSite.UI.WebMvc.resources.dll
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\nunit.framework.dll
 C:\Users\fgonzalez\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\nunit.framework.xml
+E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\nunit.framework.dll
+E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\nunit.framework.xml
+E:\Documents\GitHub\PresentationWebSite\src\PresentationWebSite.UI.WebMvc.Tests\bin\Debug\fr\PresentationWebSite.UI.WebMvc.resources.dll
