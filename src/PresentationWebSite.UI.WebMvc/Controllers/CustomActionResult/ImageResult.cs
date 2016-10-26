@@ -1,47 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PresentationWebSite.UI.WebMvc.Controllers.CustomActionResult
 {
     public class ImageResult : ActionResult
     {
-        public ImageResult(Stream imageStream, string contentType)
+        public ImageResult(byte[] imageBuffer, string contentType)
         {
-            if (imageStream == null)
-                throw new ArgumentNullException(nameof(imageStream));
+            if (imageBuffer == null)
+                throw new ArgumentNullException(nameof(imageBuffer));
             if (contentType == null)
                 throw new ArgumentNullException(nameof(contentType));
 
-            this.ImageStream = imageStream;
-            this.ContentType = contentType;
+            ImageBuffer = imageBuffer;
+            ContentType = contentType;
         }
 
-        public Stream ImageStream { get; private set; }
-        public string ContentType { get; private set; }
+        private byte[] ImageBuffer { get; }
+        private string ContentType { get; }
 
         public override void ExecuteResult(ControllerContext context)
         {
             if (context == null)
                 throw new ArgumentNullException(nameof(context));
 
-            HttpResponseBase response = context.HttpContext.Response;
+            var response = context.HttpContext.Response;
 
-            response.ContentType = this.ContentType;
+            response.ContentType = ContentType;
 
-            byte[] buffer = new byte[4096];
-            while (true)
-            {
-                int read = this.ImageStream.Read(buffer, 0, buffer.Length);
-                if (read == 0)
-                    break;
-
-                response.OutputStream.Write(buffer, 0, read);
-            }
-
+            if (ImageBuffer.Length!=0)
+                response.OutputStream.Write(ImageBuffer, 0, ImageBuffer.Length);
+            
             response.End();
         }
     }

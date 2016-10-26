@@ -8,7 +8,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
     {
         public static ImageResult Image(this Controller controller, byte[] imageBytes, string contentType)
         {
-            return new ImageResult(new MemoryStream(imageBytes), contentType);
+            return new ImageResult(imageBytes, contentType);
         }
     }
 }
