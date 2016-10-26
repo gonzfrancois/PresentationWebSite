@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using PresentationWebSite.Dal.Model;
 using PresentationWebSite.Dal.UnitOfWorks;
 using PresentationWebSite.Dal.UnitOfWorks.Base;
+using PresentationWebSite.UI.WebMvc.Controllers.CustomActionResult;
 using PresentationWebSite.UI.WebMvc.Helpers;
 using PresentationWebSite.UI.WebMvc.Helpers.Extensions;
 using PresentationWebSite.UI.WebMvc.Models.Common;
@@ -353,6 +354,14 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             }
             return RedirectToAction(nameof(AddHobby));
         }
+
+        public ImageResult GetHobbyImage(int id)
+        {
+            var imageBuffer = _uow.HobbiesRepository.Find(id)?.Content;
+            const string contentType = "image/jpeg";
+            return this.Image(imageBuffer ?? new byte[0], contentType);
+        }
+
         #endregion
     }
 

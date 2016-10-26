@@ -172,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomActionResult\ImageResult.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntroductionController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -180,6 +181,7 @@
     </Compile>
     <Compile Include="AppCode\LocalizedControllerActivator.cs" />
     <Compile Include="Helpers\Extensions\ColorExtension.cs" />
+    <Compile Include="Helpers\Extensions\ControllerExtension.cs" />
     <Compile Include="Helpers\Extensions\ConvertToExtension.cs" />
     <Compile Include="Helpers\Extensions\TranslationExtension.cs" />
     <Compile Include="Helpers\Utilities.cs" />
@@ -339,6 +341,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.ca.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -366,7 +369,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63319</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
