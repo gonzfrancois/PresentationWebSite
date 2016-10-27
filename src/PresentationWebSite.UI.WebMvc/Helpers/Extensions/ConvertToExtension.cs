@@ -9,9 +9,9 @@ using WebGrease.Css.Extensions;
 
 namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
 {
-    internal static class ConvertToExtension
+    public static class ConvertToExtension
     {
-        internal static Grade ToDto(this GraduationModel model, List<Language> languages)
+        public static Grade ToDto(this GraduationModel model, List<Language> languages)
         {
             var newGrade = new Grade { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
@@ -26,7 +26,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newGrade;
         }
 
-        internal static SkillCategory ToDto(this SkillCategoryModel model, List<Language> languages)
+        public static SkillCategory ToDto(this SkillCategoryModel model, List<Language> languages)
         {
             var newCategory = new SkillCategory() { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
@@ -41,7 +41,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newCategory;
         }
 
-        internal static Skill ToDto(this AddSkillModel model, List<SkillCategory> skillCategories, List<Language> languages)
+        public static Skill ToDto(this AddSkillModel model, List<SkillCategory> skillCategories, List<Language> languages)
         {
 
             var dto = new Skill
@@ -61,7 +61,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return dto;
         }
 
-        internal static Work ToDto(this AddWorkModel model, List<Job> jobs, List<Language> languages)
+        public static Work ToDto(this AddWorkModel model, List<Job> jobs, List<Language> languages)
         {
 
             var dto = new Work()
@@ -81,7 +81,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return dto;
         }
 
-        internal static Job ToDto(this JobModel model, List<Language> languages)
+        public static Job ToDto(this JobModel model, List<Language> languages)
         {
             var newJob = new Job() { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
@@ -100,7 +100,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newJob;
         }
 
-        internal static Hobby ToDto(this HobbyModel model, List<Language> languages)
+        public static Hobby ToDto(this HobbyModel model, List<Language> languages)
         {
             var newHobby = new Hobby() { Texts = new List<Text>() };
             foreach (var modelText in model.Texts)
@@ -122,7 +122,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return newHobby;
         }
 
-        internal static ApplicationUser ToDto(this ApplicationUserModel model, List<Language> languages)
+        public static ApplicationUser ToDto(this ApplicationUserModel model, List<Language> languages)
         { 
             var result = new ApplicationUser()
             {
@@ -149,7 +149,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return result;
         }
 
-        internal static SkillCategoryModel ToDto(this SkillCategory model)
+        public static SkillCategoryModel ToDto(this SkillCategory model)
         {
             var dto = new SkillCategoryModel()
             {
@@ -161,7 +161,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             return dto;
         }
 
-        internal static SkillModel ToDto(this Skill model)
+        public static SkillModel ToDto(this Skill model)
         {
             return new SkillModel()
             {
@@ -170,7 +170,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             };
         }
 
-        internal static TextModel ToDto(this Text model)
+        public static TextModel ToDto(this Text model)
         {
             return new TextModel()
             {
@@ -179,7 +179,7 @@ namespace PresentationWebSite.UI.WebMvc.Helpers.Extensions
             };
         }
 
-        internal static ApplicationUserModel ToDto(this ApplicationUser model, IList<TextModel> textModels)
+        public static ApplicationUserModel ToDto(this ApplicationUser model, IList<TextModel> textModels)
         {
             if (model!=null)
             {
