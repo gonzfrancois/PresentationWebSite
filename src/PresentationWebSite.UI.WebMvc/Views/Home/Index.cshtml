@@ -2,7 +2,7 @@
 @using PresentationWebSite.UI.WebMvc.Helpers.Extensions
 @model PresentationWebSite.UI.WebMvc.Models.Home.ApplicationUserModel
 @{
-    ViewBag.Title = Model.FirstName + " " + Model.FamilyName + " - " + Model.DisplayWork.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentCulture.Name)?.Value;
+    ViewBag.Title = Model.FirstName + " " + Model.FamilyName + " - " + Model.DisplayWork.FirstOrDefault(x => x.Language.CultureIsoCode == CultureInfo.CurrentUICulture.Name)?.Value;
     ViewBag.ApplicationOwner = Model.FirstName + " " + Model.FamilyName;
 }
 
@@ -99,6 +99,7 @@
                     @Html.EditorFor(m => m.PresentationTitleTexts, "IEnumerableText", Model.PresentationTitleTexts)
                     <br />
                     <input type="submit" value="Save" />
+                    <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
                 </fieldset>
             }
         }

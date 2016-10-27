@@ -178,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string NAVBAR_MENU_HEADER_CONTACT {
+            get {
+                return ResourceManager.GetString("NAVBAR_MENU_HEADER_CONTACT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accueil.
         /// </summary>
         public static string NAVBAR_MENU_HOME_HEADER {
@@ -201,15 +210,6 @@ namespace Resources {
         public static string NAVBAR_MENU_INTRODUCTION_HEADER {
             get {
                 return ResourceManager.GetString("NAVBAR_MENU_INTRODUCTION_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Contact.
-        /// </summary>
-        public static string NAVBAR_MENU_LANGUAGE_CONTACT {
-            get {
-                return ResourceManager.GetString("NAVBAR_MENU_LANGUAGE_CONTACT", resourceCulture);
             }
         }
         

@@ -156,6 +156,9 @@
   <data name="INTRODUCTION_HEADER_SKILLS" xml:space="preserve">
     <value>Habilitats</value>
   </data>
+  <data name="NAVBAR_MENU_HEADER_CONTACT" xml:space="preserve">
+    <value>Contacte</value>
+  </data>
   <data name="NAVBAR_MENU_HOME_HEADER" xml:space="preserve">
     <value>Inici</value>
   </data>
@@ -164,9 +167,6 @@
   </data>
   <data name="NAVBAR_MENU_INTRODUCTION_HEADER" xml:space="preserve">
     <value>Presentació - C.V.</value>
-  </data>
-  <data name="NAVBAR_MENU_LANGUAGE_CONTACT" xml:space="preserve">
-    <value>Contacte</value>
   </data>
   <data name="NAVBAR_MENU_LANGUAGE_HEADER" xml:space="preserve">
     <value>Idioma</value>
