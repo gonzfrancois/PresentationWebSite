@@ -106,13 +106,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
-            AssertExtension.PropertyValuesAreEquals(
-                result.Model,
-                _users.First()
-                    .ToDto(
-                        Uow.Object.LanguagesRepository.Get()
-                            .Select(language => new TextModel() {Language = language})
-                            .ToList())
+            AssertExtension.PropertyValuesAreEquals(result.Model,_users.First().ToDto(Uow.Object.LanguagesRepository.Get().ToList())
             );
         }
 

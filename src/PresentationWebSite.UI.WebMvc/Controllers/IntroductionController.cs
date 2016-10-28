@@ -108,7 +108,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         [HttpGet]
         public ActionResult AddSkillCategory()
         {
-            return View(new SkillCategoryModel
+            return View(new AddSkillCategoryModel
             {
                 Texts = _uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList()
             });
@@ -116,7 +116,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult AddSkillCategory(SkillCategoryModel model)
+        public ActionResult AddSkillCategory(AddSkillCategoryModel model)
         {
             if (ModelState.IsValid)
             {

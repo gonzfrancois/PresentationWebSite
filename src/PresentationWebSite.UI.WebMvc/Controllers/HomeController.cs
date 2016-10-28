@@ -1,11 +1,9 @@
 ﻿using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
-using PresentationWebSite.Dal;
 using PresentationWebSite.Dal.UnitOfWorks;
 using PresentationWebSite.Dal.UnitOfWorks.Base;
 using PresentationWebSite.UI.WebMvc.Helpers.Extensions;
-using PresentationWebSite.UI.WebMvc.Models.Common;
 using PresentationWebSite.UI.WebMvc.Models.Home;
 
 namespace PresentationWebSite.UI.WebMvc.Controllers
@@ -26,7 +24,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         public ActionResult Index()
         {
-            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
+            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().ToList());
             return View(model);
         }
 
@@ -37,7 +35,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         public ActionResult Contact()
         {
-            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
+            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().ToList());//_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
             return View(model);
         }
 
@@ -55,7 +53,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         [ActionName("EditApplicationUser")]
         public ActionResult EditApplicationUser()
         {
-            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
+            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().ToList());
             model.IsEditMode = true;
             return View(nameof(Index),model);
         }

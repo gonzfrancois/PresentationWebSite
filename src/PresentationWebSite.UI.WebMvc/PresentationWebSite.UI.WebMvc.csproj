@@ -202,7 +202,7 @@
     <Compile Include="Models\Introduction\SkillChart\ChartPie.cs" />
     <Compile Include="Models\Introduction\SkillChart\ChartPieSlice.cs" />
     <Compile Include="Models\Introduction\SkillCategoriesModel.cs" />
-    <Compile Include="Models\Introduction\SkillCategoryModel.cs" />
+    <Compile Include="Models\Introduction\AddSkillCategoryModel.cs" />
     <Compile Include="Models\Introduction\SkillModel.cs" />
     <Compile Include="Models\Introduction\WorkModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

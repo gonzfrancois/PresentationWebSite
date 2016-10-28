@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PresentationWebSite.Dal.Model;
+﻿using System.Collections.Generic;
 using PresentationWebSite.UI.WebMvc.Models.Common;
 
 namespace PresentationWebSite.UI.WebMvc.Models.Introduction
 {
-    public class SkillCategoryModel : IntroductionModelBase
+    public class AddSkillCategoryModel : IntroductionModelBase
     {
         public override IntroductionChildTab ActiveTab => IntroductionChildTab.Skill;
 

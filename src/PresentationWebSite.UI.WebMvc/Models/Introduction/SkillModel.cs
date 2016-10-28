@@ -10,7 +10,7 @@ namespace PresentationWebSite.UI.WebMvc.Models.Introduction
     public class SkillModel : IntroductionModelBase
     {
         public override IntroductionChildTab ActiveTab => IntroductionChildTab.Skill;
-        public SkillCategoryModel Category { get; set; }
+        public AddSkillCategoryModel Category { get; set; }
         public IEnumerable<TextModel> Texts { get; set; }
         public int KnowledgePercent { get; set; }
     }
