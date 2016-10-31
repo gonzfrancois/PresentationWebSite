@@ -27,6 +27,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Helpers
 
         private static void AssertListsAreEquals(PropertyInfo property, IList actualList, IList expectedList)
         {
+            if (property == null) throw new ArgumentNullException(nameof(property));
             if (actualList.Count != expectedList.Count)
                 Assert.Fail("Property {0}.{1} does not match. Expected IList containing {2} elements but was IList containing {3} elements", property.PropertyType.Name, property.Name, expectedList.Count, actualList.Count);
 
@@ -46,7 +47,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Helpers
                 Assert.Fail("Collections are not same length");
             }
 
-            for (int i = 0; i < oneArray.Length; i++)
+            for (var i = 0; i < oneArray.Length; i++)
             {
                 var isEqual = comparisonFunction(oneArray[i], twoArray[i]);
                 Assert.IsTrue(isEqual);

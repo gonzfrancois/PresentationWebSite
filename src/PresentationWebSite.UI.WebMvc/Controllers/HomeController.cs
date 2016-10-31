@@ -35,10 +35,11 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
 
         public ActionResult Contact()
         {
-            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().ToList());//_uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList());
+            var model = _uow.UsersRepository.Get().FirstOrDefault().ToDto(_uow.LanguagesRepository.Get().ToList());
             return View(model);
         }
 
+        //TODO: Check if is used.
         [HttpPost]
         public ActionResult Contact(dynamic model)
         {

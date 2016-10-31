@@ -16,8 +16,15 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Data
             mock.Setup(x => x.Find(It.IsAny<T>()))
                 .Returns((T t) => entities.FirstOrDefault(y => y == t));
 
+            mock.Setup(x => x.Find(It.IsAny<object[]>()))
+                .Returns<object[]>(ids => entities.FirstOrDefault(y => ((dynamic)y).Id == (int)ids[0]));
+
             mock.Setup(x => x.Insert(It.IsAny<T>()))
-                .Callback((T t) => entities.Insert(entities.Count, t));
+                .Callback((T t) =>
+                          {
+                              ((dynamic) t).Id = entities.Count+1;
+                              entities.Insert(entities.Count, t);
+                          });
 
             mock.Setup(x => x.Delete(It.IsAny<T>()))
                 .Callback((T t) => entities.Remove(t));
