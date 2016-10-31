@@ -9,6 +9,7 @@ using NUnit.Framework;
 using PresentationWebSite.Dal.Model;
 using PresentationWebSite.UI.WebMvc.Helpers.Extensions;
 using PresentationWebSite.UI.WebMvc.Models.Common;
+using PresentationWebSite.UI.WebMvc.Models.Home;
 using PresentationWebSite.UI.WebMvc.Models.Introduction;
 using PresentationWebSite.UI.WebMvc.Tests.Helpers;
 
@@ -19,7 +20,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
     {
         private readonly List<Language> _languages = new List<Language>()
         {
-            new Language() {Id = 1, CultureIsoCode = "fr-fr"},
+            new Language() {Id = 1, CultureIsoCode = "fr-FR"},
             new Language() {Id = 2, CultureIsoCode = "en-US"}
         };
 
@@ -154,7 +155,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
 
             Assert.AreEqual(expected.KnowledgePercent, result.KnowledgePercent);
             Assert.AreEqual(expected.Category, result.Category);
-            
+
             AssertExtension.CompareIEnumerable(expected.Texts, result.Texts, (x, y) => x.Language == y.Language && x.Value == y.Value);
         }
 
@@ -191,7 +192,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
             };
 
             var result = act.ToDto(jobs, _languages);
-            
+
             Assert.AreEqual(expected.Job, result.Job);
             Assert.AreEqual(expected.DisplayPriority, result.DisplayPriority);
             AssertExtension.CompareIEnumerable(expected.Texts, result.Texts, (x, y) => x.Language == y.Language && x.Value == y.Value);
@@ -201,7 +202,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
         public void Should_Transform_JobModel_To_Job()
         {
             var expecteds = new List<Job>()
-            { 
+            {
                 new Job()
                 {
                     Id = 1,
@@ -226,7 +227,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
                 },
             };
             var results = new List<JobModel>()
-            { 
+            {
                 new JobModel()
                 {
                     StarterDate = new DateTime(2000, 1, 1),
@@ -261,62 +262,143 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
                 AssertExtension.CompareIEnumerable(expected.Texts, result.Texts, (x, y) => x.Language == y.Language && x.Value == y.Value);
             }
 
-            
+
         }
 
-        [Ignore("Not implemented_ Error <<Stream closed when access>> ")]
+        [Test]
         public void Should_Transform_HobyModel_To_Hobby()
         {
             var image = TestResources.TestsResources.test;
-            using (var stream = new MemoryStream())
-            {
-                image.Save(stream, ImageFormat.Jpeg);
-                stream.Seek(0, 0);
-                var webImg = new WebImage(stream);
 
-                var expected = new Hobby()
-                {
-                    Id = 1,
-                    Content = webImg.GetBytes(),
-                    Texts = new List<Text>()
+            var expectedStream = new MemoryStream();
+            image.Save(expectedStream, ImageFormat.Jpeg);
+
+            var expectedWebImage = new WebImage(expectedStream);
+            expectedWebImage.Resize(350, 200, false);
+
+            var expected = new Hobby()
+            {
+                Id = 1,
+                Content = expectedWebImage.GetBytes(),
+                Texts = new List<Text>()
                     {
                         new Text() {Language = _languages[0], Value = "hb1.fr"},
                         new Text() {Language = _languages[1], Value = "hb1.en"}
                     }
-                };
+            };
 
-                var context = new Mock<HttpContextBase>();
-                var request = new Mock<HttpRequestBase>();
-                var files = new Mock<HttpFileCollectionBase>();
-                var file = new Mock<HttpPostedFileBase>();
-                context.Setup(x => x.Request).Returns(request.Object);
+            var imgFake = new Mock<HttpPostedFileBase>();
+            imgFake.Setup(x => x.InputStream).Returns(new MemoryStream(expectedWebImage.GetBytes()));
 
-                files.Setup(x => x.Count).Returns(1);
-                
-                // The required properties from my Controller side
-                file.Setup(x => x.InputStream).Returns(stream);
-                file.Setup(x => x.ContentLength).Returns((int) stream.Length);
-
-                files.Setup(x => x.Get(0).InputStream).Returns(file.Object.InputStream);
-                request.Setup(x => x.Files).Returns(files.Object);
-                request.Setup(x => x.Files[0]).Returns(file.Object);
-
-                var act = new HobbyModel()
-                {
-                    Picture = file.Object,
-                    Texts = new List<TextModel>()
+            var act = new HobbyModel()
+            {
+                Picture = imgFake.Object,
+                Texts = new List<TextModel>()
                     {
                         new TextModel() {Language = _languages[0], Value = "hb1.fr"},
                         new TextModel() {Language = _languages[1], Value = "hb1.en"}
                     }
-                };
+            };
 
-                var result = act.ToDto(_languages);
+            var result = act.ToDto(_languages);
 
-                Assert.AreEqual(expected.Content, result.Content);
-                AssertExtension.CompareIEnumerable(expected.Texts, result.Texts,
-                    (x, y) => x.Language == y.Language && x.Value == y.Value);
-            }
+            Assert.AreEqual(expected.Content, result.Content);
+            AssertExtension.CompareIEnumerable(expected.Texts, result.Texts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+        }
+
+        [Test]
+        public void Should_Transform_ApplicationUserModel_To_ApplicationUser()
+        {
+            var expected = new ApplicationUser()
+            {
+                Id = 1,
+                City = "Perpignan",
+                DateOfBirth = new DateTime(2000, 1, 20),
+                FamilyName = "Dupont",
+                FirstName = "Gilles",
+                Email = "gilles@dupont.fr",
+                PhoneNumber = "0033468000000",
+                ZipCode = "66000",
+                LinkedInUrl = "gilles.dupont66",
+                TwitterName = "gillesDupont",
+                DisplayWork = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "jb1.fr"},
+                    new Text() {Language = _languages[1], Value = "jb1.en"}
+                },
+                ApplicationUserPresentations = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "Presentation.fr"},
+                    new Text() {Language = _languages[1], Value = "Presentation.en"}
+                },
+                PresentationTitleTexts = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "PresentationTitle.fr"},
+                    new Text() {Language = _languages[1], Value = "PresentationTitle.en"}
+                },
+                PresentationSubTitleTexts = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "PresentationSubTitle.fr"},
+                    new Text() {Language = _languages[1], Value = "PresentationSubTitle.en"}
+                }
+            };
+
+            var model = new ApplicationUserModel()
+            {
+                Id = 1,
+                City = "Perpignan",
+                DateOfBirth = new DateTime(2000, 1, 20),
+                FamilyName = "Dupont",
+                FirstName = "Gilles",
+                Email = "gilles@dupont.fr",
+                PhoneNumber = "0033468000000",
+                ZipCode = "66000",
+                LinkedInUrl = "gilles.dupont66",
+                TwitterName = "gillesDupont",
+                DisplayWork = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "jb1.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "jb1.en"}
+                                },
+                PresentationTexts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "Presentation.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "Presentation.en"}
+                                },
+                PresentationTitleTexts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "PresentationTitle.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "PresentationTitle.en"}
+                                },
+                PresentationSubTitleTexts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "PresentationSubTitle.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "PresentationSubTitle.en"}
+                                },
+            };
+
+            var result = model.ToDto(_languages);
+
+            Assert.AreEqual(expected.Id, result.Id);
+            Assert.AreEqual(expected.City, result.City);
+            Assert.AreEqual(expected.DateOfBirth, result.DateOfBirth);
+            Assert.AreEqual(expected.FamilyName, result.FamilyName);
+            Assert.AreEqual(expected.FirstName, result.FirstName);
+            Assert.AreEqual(expected.Email, result.Email);
+            Assert.AreEqual(expected.PhoneNumber, result.PhoneNumber);
+            Assert.AreEqual(expected.ZipCode, result.ZipCode);
+            Assert.AreEqual(expected.LinkedInUrl, result.LinkedInUrl);
+            Assert.AreEqual(expected.TwitterName, result.TwitterName);
+
+            AssertExtension.CompareIEnumerable(expected.DisplayWork, result.DisplayWork,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+            AssertExtension.CompareIEnumerable(expected.ApplicationUserPresentations, result.ApplicationUserPresentations,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+            AssertExtension.CompareIEnumerable(expected.PresentationTitleTexts, result.PresentationTitleTexts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+            AssertExtension.CompareIEnumerable(expected.PresentationSubTitleTexts, result.PresentationSubTitleTexts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
         }
 
         private SkillCategory NewSkillCategory(int id)
@@ -347,5 +429,234 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
                 }
             };
         }
+
+        [Test]
+        public void Should_Transform_SkillCategory_To_AddSkillCategoryModel()
+        {
+            var expected = new AddSkillCategoryModel()
+            {
+                Id = 1,
+                DisplayPriority = 1,
+                Texts = new List<TextModel>()
+                        {
+                            new TextModel() {Language = _languages[0], Value = "skc1.fr"},
+                            new TextModel() {Language = _languages[1], Value = "skc1.en"}
+                        },
+                Skills = new List<SkillModel>()
+                {
+                    new SkillModel()
+                    {
+                        KnowledgePercent = 50,
+                        Texts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "sk1"},
+                                    new TextModel() {Language = _languages[1], Value = "sk2"}
+                                }
+                    },
+                    new SkillModel() {
+                        KnowledgePercent = 60,
+                        Texts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "sk3"},
+                                    new TextModel() {Language = _languages[1], Value = "sk4"}
+                                }
+                    }
+                }
+            };
+
+            var act = new SkillCategory()
+            {
+                Id = 1,
+                DisplayPriority = 1,
+                Texts = new List<Text>()
+                        {
+                            new Text() {Language = _languages[0], Value = "skc1.fr"},
+                            new Text() {Language = _languages[1], Value = "skc1.en"}
+                        },
+                Skills = new List<Skill>()
+                {
+                    new Skill()
+                    {
+                        Id = 1,
+                        KnowledgePercent = 50,
+                        Texts = new List<Text>()
+                                {
+                                    new Text() {Language = _languages[0], Value = "sk1"},
+                                    new Text() {Language = _languages[1], Value = "sk2"}
+                                }
+                    },
+                    new Skill()
+                    {
+                        Id = 2,
+                        KnowledgePercent = 60,
+                        Texts = new List<Text>()
+                                {
+                                    new Text() {Language = _languages[0], Value = "sk3"},
+                                    new Text() {Language = _languages[1], Value = "sk4"}
+                                }
+                    }
+                }
+            };
+
+            var result = act.ToDto();
+
+            Assert.AreEqual(expected.Id, result.Id);
+            Assert.AreEqual(expected.DisplayPriority, result.DisplayPriority);
+
+            AssertExtension.CompareIEnumerable(expected.Texts, result.Texts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+
+            AssertExtension.CompareIEnumerable(expected.Skills, result.Skills,
+                (x, y) => x.KnowledgePercent == y.KnowledgePercent &&
+                AssertExtension.CompareIEnumerable(x.Texts, y.Texts,
+                (a, b) => a.Language == b.Language && a.Value == b.Value));
+        }
+
+        [Test]
+        public void Should_Transform_Skill_To_AddSkillModel()
+        {
+            var expected = new AddSkillModel()
+            {
+                KnowledgePercent = 50,
+                Texts = new List<TextModel>()
+                            {
+                                new TextModel() {Language = _languages[0], Value = "sk1.fr"},
+                                new TextModel() {Language = _languages[1], Value = "sk1.en"}
+                            }
+            };
+
+            var act = new Skill()
+            {
+                KnowledgePercent = 50,
+                Texts = new List<Text>()
+                            {
+                                new Text() {Language = _languages[0], Value = "sk1.fr"},
+                                new Text() {Language = _languages[1], Value = "sk1.en"}
+                            }
+            };
+
+            var result = act.ToDto();
+
+            Assert.AreEqual(expected.KnowledgePercent, result.KnowledgePercent);
+            AssertExtension.CompareIEnumerable(expected.Texts, result.Texts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+        }
+
+        [Test]
+        public void Should_Transform_IEnumerableOfText_To_IEnumerableOfTextModel()
+        {
+            var expected = new List<TextModel>()
+                           {
+                               new TextModel() {Language = _languages[0], Value = "sk1.fr"},
+                               new TextModel() {Language = _languages[1], Value = "sk1.en"}
+                           };
+
+            var act = new List<Text>()
+                        {
+                            new Text() {Language = _languages[0], Value = "sk1.fr"},
+                            new Text() {Language = _languages[1], Value = "sk1.en"}
+                        };
+
+            var result = act.ToDto();
+
+            AssertExtension.CompareIEnumerable(expected, result,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+        }
+
+        [Test]
+        public void Should_Transform_ApplicationUser_To_ApplicationUserModel()
+        {
+
+            var expected = new ApplicationUserModel()
+            {
+                Id = 1,
+                City = "Perpignan",
+                DateOfBirth = new DateTime(2000, 1, 20),
+                FamilyName = "Dupont",
+                FirstName = "Gilles",
+                Email = "gilles@dupont.fr",
+                PhoneNumber = "0033468000000",
+                ZipCode = "66000",
+                LinkedInUrl = "gilles.dupont66",
+                TwitterName = "gillesDupont",
+                DisplayWork = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "jb1.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "jb1.en"}
+                                },
+                PresentationTexts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "Presentation.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "Presentation.en"}
+                                },
+                PresentationTitleTexts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "PresentationTitle.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "PresentationTitle.en"}
+                                },
+                PresentationSubTitleTexts = new List<TextModel>()
+                                {
+                                    new TextModel() {Language = _languages[0], Value = "PresentationSubTitle.fr"},
+                                    new TextModel() {Language = _languages[1], Value = "PresentationSubTitle.en"}
+                                },
+            };
+
+            var act = new ApplicationUser()
+            {
+                Id = 1,
+                City = "Perpignan",
+                DateOfBirth = new DateTime(2000, 1, 20),
+                FamilyName = "Dupont",
+                FirstName = "Gilles",
+                Email = "gilles@dupont.fr",
+                PhoneNumber = "0033468000000",
+                ZipCode = "66000",
+                LinkedInUrl = "gilles.dupont66",
+                TwitterName = "gillesDupont",
+                DisplayWork = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "jb1.fr"},
+                    new Text() {Language = _languages[1], Value = "jb1.en"}
+                },
+                ApplicationUserPresentations = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "Presentation.fr"},
+                    new Text() {Language = _languages[1], Value = "Presentation.en"}
+                },
+                PresentationTitleTexts = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "PresentationTitle.fr"},
+                    new Text() {Language = _languages[1], Value = "PresentationTitle.en"}
+                },
+                PresentationSubTitleTexts = new List<Text>()
+                {
+                    new Text() {Language = _languages[0], Value = "PresentationSubTitle.fr"},
+                    new Text() {Language = _languages[1], Value = "PresentationSubTitle.en"}
+                }
+            };
+
+            var result = act.ToDto(_languages);
+
+            Assert.AreEqual(expected.Id, result.Id);
+            Assert.AreEqual(expected.City, result.City);
+            Assert.AreEqual(expected.DateOfBirth, result.DateOfBirth);
+            Assert.AreEqual(expected.FamilyName, result.FamilyName);
+            Assert.AreEqual(expected.FirstName, result.FirstName);
+            Assert.AreEqual(expected.Email, result.Email);
+            Assert.AreEqual(expected.PhoneNumber, result.PhoneNumber);
+            Assert.AreEqual(expected.ZipCode, result.ZipCode);
+            Assert.AreEqual(expected.LinkedInUrl, result.LinkedInUrl);
+            Assert.AreEqual(expected.TwitterName, result.TwitterName);
+
+            AssertExtension.CompareIEnumerable(expected.DisplayWork, result.DisplayWork,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+            AssertExtension.CompareIEnumerable(expected.PresentationTexts, result.PresentationTexts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+            AssertExtension.CompareIEnumerable(expected.PresentationTitleTexts, result.PresentationTitleTexts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+            AssertExtension.CompareIEnumerable(expected.PresentationSubTitleTexts, result.PresentationSubTitleTexts,
+                (x, y) => x.Language == y.Language && x.Value == y.Value);
+        }
+
     }
 }
