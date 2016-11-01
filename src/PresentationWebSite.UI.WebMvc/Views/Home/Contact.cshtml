@@ -2,9 +2,10 @@
 @{
     ViewBag.Title = @Resources.Global.APPLICATION_OWNER_NAME + " - " + @Resources.Global.NAVBAR_MENU_HEADER_CONTACT;
 }
-<br/>
+<br />
 <div class="panel panel-default">
     <br />
+
     <address class="text-center">
         <strong>@(Model.FirstName ?? "")&nbsp;@(Model.FamilyName ?? "")</strong><br />
         @Model.City&nbsp;@Model.ZipCode<br />
@@ -25,7 +26,9 @@
             var email = Model.Email;
             <a href="mailto:@email">@email</a><br />
         }
-        <iframe class="col-sm-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d872014.7650260683!2d3.1134466426360685!3d42.95643429609058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b06e4e80fd88fd%3A0x1c83306520f2dd4f!2sPerpignan!5e0!3m2!1sfr!2sfr!4v1476222421604" @*width="600"*@ height="450" frameborder="0" style="border: 0" allowfullscreen></iframe>
+        <div class="row">
+            <iframe class="googlemaps col-sm-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d872014.7650260683!2d3.1134466426360685!3d42.95643429609058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b06e4e80fd88fd%3A0x1c83306520f2dd4f!2sPerpignan!5e0!3m2!1sfr!2sfr!4v1476222421604" allowfullscreen></iframe>
+        </div>
     </address>
-    
+
 </div>

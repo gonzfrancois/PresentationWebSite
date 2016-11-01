@@ -7,9 +7,10 @@
     ViewBag.Title = @Resources.Global.INTRODUCTION_HEADER_HOBBIES;
     bool isAdmin = User.IsInRole("Administrator");
 }
+<div class="row">
     @foreach (var hobby in @Model.Hobbies)
     {
-        <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-md-6 col-sm-12">
             @{
                 if (isAdmin)
                 {
@@ -23,11 +24,12 @@
                 </div>
             </div>
         </div>
-    }
+                }
     @{
         if (isAdmin)
         {
-            <li>@Html.ActionLink("Add", "AddHobby")</li>
+            <span>@Html.ActionLink("Add", "AddHobby")</span>
         }
     }
 
+</div>
