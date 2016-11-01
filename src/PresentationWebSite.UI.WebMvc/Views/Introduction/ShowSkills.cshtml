@@ -15,32 +15,34 @@
 <script type="text/javascript">
     @{
         var stream = new MemoryStream();
-        var ser = new DataContractJsonSerializer(typeof(ChartPie));
+        var ser = new DataContractJsonSerializer(typeof (ChartPie));
         ser.WriteObject(stream, Model.ChartDatas);
         stream.Position = 0;
         var sr = new StreamReader(stream);
         var chart = sr.ReadToEnd();
     }
 
-    FusionCharts.ready(function () {
-            var fusioncharts = new FusionCharts({
-                type: 'multilevelpie',
-                renderAt: 'chart-container',
-                id: "skillChart",
-                width: document.getElementById("chart-container").offsetWidth,
-                height: document.getElementById("chart-container").offsetWidth,
-                dataFormat: 'json',
-                dataSource: @Html.Raw(chart)
-            });
+    FusionCharts.ready(function() {
+        var fusioncharts = new FusionCharts({
+            type: 'multilevelpie',
+            renderAt: 'chart-container',
+            id: "skillChart",
+            width: document.getElementById("chart-container").offsetWidth,
+            height: document.getElementById("chart-container").offsetWidth,
+            dataFormat: 'json',
+            dataSource: @Html.Raw(chart)
+        });
         fusioncharts.render();
     });
-    
+
     window.onresize = function() {
         var cont = document.getElementById("chart-container");
-        document.getElementById('skillChart').resizeTo(cont.offsetWidth, cont.offsetWidth);    
+        document.getElementById('skillChart').resizeTo(cont.offsetWidth, cont.offsetWidth);
     };
 </script>
-<div id="chart-container" class="col-md-12 col-sm-12">Chart will load here!</div>
+<div class="row chart-container-row">
+    <div id="chart-container" class="chart-container col-sm-12">Chart will load here!</div>
+</div>
 @{
     if (isAdmin)
     {

@@ -102,3 +102,16 @@
     vertical-align: middle;
     border: 0;
 }
+
+.chart-container-row {
+    padding: 0 !important;
+    margin:  0 15px 0 15px !important;
+    max-width: 800px;
+    max-height: 800px;
+}
+
+.chart-container {
+    padding: 0 !important;
+    max-width: 800px;
+    max-height: 800px;    
+}
