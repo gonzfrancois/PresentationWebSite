@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -37,7 +38,7 @@
                                 <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
                                              ViewContext.RouteData.Values["controller"].ToString(),
                                              new {lang = "fr-FR"}, null)">
-                                    <span class="flag flag-fr" alt="Fr"></span>
+                                    <span class="flag flag-fr"></span>
                                     <span>Français</span>
                                 </a>
                             </li>
@@ -45,7 +46,7 @@
                                 <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
                                              ViewContext.RouteData.Values["controller"].ToString(),
                                              new {lang = "en-GB"}, null)">
-                                    <span class="flag flag-en" alt="En"></span>
+                                    <span class="flag flag-en"></span>
                                     <span>English</span>
                                 </a>
                             </li>
@@ -53,7 +54,7 @@
                                 <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
                                              ViewContext.RouteData.Values["controller"].ToString(),
                                              new {lang = "es-ES"}, null)">
-                                    <span class="flag flag-es" alt="Es"></span>
+                                    <span class="flag flag-es"></span>
                                     <span>Castellano</span>
                                 </a>
                             </li>
@@ -61,7 +62,7 @@
                                 <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(),
                                              ViewContext.RouteData.Values["controller"].ToString(),
                                              new {lang = "ca-ES"}, null)">
-                                    <span class="flag flag-cat" alt="Cat"></span>
+                                    <span class="flag flag-cat"></span>
                                     <span>Català</span>
                                 </a>
                             </li>
