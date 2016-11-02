@@ -9,10 +9,10 @@
 @{
     using (Html.BeginForm("AddSkillCategory", "Introduction", FormMethod.Post, new { model = Model }))
     {
-        @Html.EditorFor(m => m.Texts, "IEnumerableText")
+        @Html.EditorFor(m => m.Texts, "IEnumerableText", Model.Texts)
         
         @Html.LabelFor(m => m.DisplayPriority,"Priority Order (less is up)")
-        @Html.EditorFor(m => m.DisplayPriority)
+        @Html.EditorFor(m => m.DisplayPriority, Model.DisplayPriority)
         <input type="submit" value="Save" />
         <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
     }

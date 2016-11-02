@@ -9,6 +9,7 @@ namespace PresentationWebSite.UI.WebMvc.Models.Introduction
 
         public int Id { get; set; }
         public int DisplayPriority { get; set; }
+        public bool IsEditMode { get; set; }
         public virtual IEnumerable<TextModel> Texts { get; set; }
         public virtual IEnumerable<SkillModel> Skills { get; set; }
   

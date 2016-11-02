@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace PresentationWebSite.UI.WebMvc.Controllers.CustomActionResult
 {
-    public class ImageResult : ActionResult
+    public class ImageResult : ActionResult, IEquatable<ImageResult>
     {
         public ImageResult(byte[] imageBuffer, string contentType)
         {
@@ -32,6 +32,11 @@ namespace PresentationWebSite.UI.WebMvc.Controllers.CustomActionResult
                 response.OutputStream.Write(ImageBuffer, 0, ImageBuffer.Length);
             
             response.End();
+        }
+
+        public bool Equals(ImageResult other)
+        {
+            return other != null && ContentType == other.ContentType && ImageBuffer == other.ImageBuffer;
         }
     }
 }

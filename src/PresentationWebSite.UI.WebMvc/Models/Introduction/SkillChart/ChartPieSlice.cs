@@ -49,7 +49,7 @@ namespace PresentationWebSite.UI.WebMvc.Models.Introduction.SkillChart
             else
                 result.Append(text.Replace(" ", "{br}"));
             return result.ToString();
-        
-    }
+
+        }
     }
 }

@@ -6,11 +6,11 @@ namespace PresentationWebSite.Dal.UnitOfWorks.Base
     {
         int Save();
         
-        //void BeginTransaction();
+        void BeginTransaction();
 
-        //void Commit();
+        void Commit();
 
-        //void Rollback();
+        void Rollback();
 
     }
 }

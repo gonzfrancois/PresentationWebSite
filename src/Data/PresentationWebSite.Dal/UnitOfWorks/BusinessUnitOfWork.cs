@@ -1,4 +1,5 @@
-﻿using PresentationWebSite.Dal.Model;
+﻿using System.Data.Entity;
+using PresentationWebSite.Dal.Model;
 using PresentationWebSite.Dal.Repository.Base;
 using PresentationWebSite.Dal.UnitOfWorks.Base;
 
@@ -45,5 +46,21 @@ namespace PresentationWebSite.Dal.UnitOfWorks
 
         public void Dispose() => _dbContext.Dispose();
         public int Save() => _dbContext.SaveChanges();
+
+        private DbContextTransaction _transaction;
+        public void BeginTransaction()
+        {
+            _transaction = _dbContext.Database.BeginTransaction();
+        }
+
+        public void Commit()
+        {
+            _transaction?.Commit();
+        }
+
+        public void Rollback()
+        {
+            _transaction?.Rollback();
+        }
     }
 }

@@ -32,9 +32,10 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         }
 
         #region Graduations
+
         public ActionResult ShowGraduations()
         {
-            return View(new GraduationsModel { Graduations = _uow.GradesRepository.Get().ToList() });
+            return View(new GraduationsModel {Graduations = _uow.GradesRepository.Get().ToList()});
         }
 
         [Authorize(Roles = "Administrator")]
@@ -55,7 +56,8 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         {
             return View(new GraduationModel()
             {
-                Texts = _uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList()
+                Texts =
+                    _uow.LanguagesRepository.Get().Select(language => new TextModel() {Language = language}).ToList()
             });
         }
 
@@ -71,9 +73,11 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             }
             return RedirectToAction(nameof(AddGraduation));
         }
+
         #endregion
 
         #region SkillCategories
+
         [Authorize(Roles = "Administrator")]
         public ActionResult DeleteSkillCategory(int skillCategoryId)
         {
@@ -99,18 +103,16 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             return RedirectToAction(nameof(ShowSkills));
         }
 
-        public ActionResult EditSkillCategory(int skillcategoryid)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult AddSkillCategory()
         {
             return View(new AddSkillCategoryModel
             {
-                Texts = _uow.LanguagesRepository.Get().Select(language => new TextModel() { Language = language }).ToList()
+                Texts = _uow.LanguagesRepository.Get()
+                .Select(language => new TextModel() {Language = language})
+                .ToList()
             });
         }
 
@@ -120,7 +122,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                _uow.SkillCategoriesRepository.Insert(model.ToDto(_uow.LanguagesRepository.Get().ToList()));
+                _uow.SkillCategoriesRepository.Insert(model.ToDto(_uow.LanguagesRepository.Get().ToList())); 
                 _uow.Save();
                 return RedirectToAction(nameof(ShowSkills));
             }
@@ -138,14 +140,14 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
             };
 
             Func<SkillCategory, Color> getColorFromPalette = sk => skills.Palette[skills.Categories.ToList().IndexOf(sk)];
-            
+
             while (skills.Palette.Count < skills.Categories.Count)
             {
                 skills.Palette.Add(skills.Palette.Last().GetNextColor());
             }
 
             skills.ChartDatas.Slices = new List<ChartPieSlice>();
-            
+
             skills.ChartDatas.Slices = skills.Categories.OrderByDescending(sc => sc.Skills.Count).Select(x => new ChartPieSlice()
             {
                 Label = x.Texts.GetText(CultureInfo.CurrentUICulture),
@@ -157,7 +159,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
                     Label = y.Texts.GetText(CultureInfo.CurrentUICulture),
                     Color = getColorFromPalette(x).GetHexValue(),
                     Value = y.KnowledgePercent,
-                    ToolTip = y.Texts.GetText(CultureInfo.CurrentUICulture) + " " + Utilities.GetGlyphiconStarsFromPercents(y.KnowledgePercent,5)
+                    ToolTip = y.Texts.GetText(CultureInfo.CurrentUICulture) + " " + Utilities.GetGlyphiconStarsFromPercents(y.KnowledgePercent, 5)
                 }))
             });
             return View(skills);
@@ -222,7 +224,7 @@ namespace PresentationWebSite.UI.WebMvc.Controllers
                 _uow.WorksRepository.Delete(workToRemove);
                 _uow.Save();
             }
-            return RedirectToAction(nameof(ShowSkills));
+            return RedirectToAction(nameof(ShowJobs));
         }
 
         public ActionResult EditWok(int workId)

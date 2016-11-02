@@ -1,7 +1,5 @@
 ﻿@using System.Globalization
-@using System.Runtime.Serialization.Json
 @using PresentationWebSite.UI.WebMvc.Helpers.Extensions
-@using PresentationWebSite.UI.WebMvc.Models.Introduction.SkillChart
 
 @model PresentationWebSite.UI.WebMvc.Models.Introduction.SkillCategoriesModel
 
@@ -13,15 +11,6 @@
 
 @Scripts.Render("~/bundles/fusioncharts")
 <script type="text/javascript">
-    @{
-        var stream = new MemoryStream();
-        var ser = new DataContractJsonSerializer(typeof (ChartPie));
-        ser.WriteObject(stream, Model.ChartDatas);
-        stream.Position = 0;
-        var sr = new StreamReader(stream);
-        var chart = sr.ReadToEnd();
-    }
-
     FusionCharts.ready(function() {
         var fusioncharts = new FusionCharts({
             type: 'multilevelpie',
@@ -30,7 +19,7 @@
             width: document.getElementById("chart-container").offsetWidth,
             height: document.getElementById("chart-container").offsetWidth,
             dataFormat: 'json',
-            dataSource: @Html.Raw(chart)
+            dataSource: @Html.Raw(Model.ChartDatas.ToJson())
         });
         fusioncharts.render();
     });

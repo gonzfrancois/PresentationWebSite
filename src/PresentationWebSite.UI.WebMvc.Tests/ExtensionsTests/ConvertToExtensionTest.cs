@@ -266,7 +266,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
         }
 
         [Test]
-        public void Should_Transform_HobyModel_To_Hobby()
+        public void Should_Transform_HobbyModel_To_Hobby()
         {
             var image = TestResources.TestsResources.test;
 
