@@ -1,4 +1,6 @@
 language: csharp
+mono:
+  - latest
 solution: ./src/PresentationWebSite.sln
 install:
   - nuget restore ./src/PresentationWebSite.sln
