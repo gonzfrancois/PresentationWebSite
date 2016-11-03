@@ -4,7 +4,7 @@ mono:
 solution: ./src/PresentationWebSite.sln
 install:
   - nuget restore ./src/PresentationWebSite.sln
-  - nuget install nunit3 -OutputDirectory testrunner
+  - nuget install nunit -OutputDirectory NUnit
 script:
   - xbuild /p:Configuration=Release ./src/PresentationWebSite.sln
-  - mono ./testrunner/nunit3-console.exe ./src/PresentationWebSite.UI.WebMvc.Tests/bin/Release/PresentationWebSite.UI.WebMvc.Tests.dll
+  - mono ./testrunner/NUnit/nunit-console/nunit3-console.exe ./src/PresentationWebSite.UI.WebMvc.Tests/bin/Release/PresentationWebSite.UI.WebMvc.Tests.dll
