@@ -114,6 +114,7 @@
     <EmbeddedResource Include="Resources\test.jpg">
       <CustomToolNamespace>TestResources</CustomToolNamespace>
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\TestsResources.resx">
       <CustomToolNamespace>TestResources</CustomToolNamespace>

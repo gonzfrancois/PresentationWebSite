@@ -583,7 +583,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Controllers
             // Act
             var uow = new UnitOfWorkFakeFactory().Uow.Object;
             var image = TestResources.TestsResources.test;
-            if(image==null) throw new NullReferenceException("Image not loaded");
+            
             var expectedStream = new MemoryStream();
             image.Save(expectedStream, ImageFormat.Jpeg);
             var expectedFile = new Mock<HttpPostedFileBase>();
@@ -596,7 +596,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Controllers
 
             var paramUser = new HobbyModel()
             {
-                Picture = paramFile.Object,
+                //Picture = paramFile.Object,
                 Texts = new List<TextModel>()
                 {
                     new TextModel() {Language = uow.LanguagesRepository.Get().ToList()[0], Value = "Graduation.fr"},
@@ -605,7 +605,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Controllers
             };
             var expected = new HobbyModel()
             {
-                Picture = expectedFile.Object,
+                //Picture = expectedFile.Object,
                 Texts = new List<TextModel>()
                 {
                     new TextModel() {Language = uow.LanguagesRepository.Get().ToList()[0], Value = "Graduation.fr"},
