@@ -583,7 +583,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Controllers
             // Act
             var uow = new UnitOfWorkFakeFactory().Uow.Object;
             var image = TestResources.TestsResources.test;
-
+            if(image==null) throw new NullReferenceException("Image not loaded");
             var expectedStream = new MemoryStream();
             image.Save(expectedStream, ImageFormat.Jpeg);
             var expectedFile = new Mock<HttpPostedFileBase>();
