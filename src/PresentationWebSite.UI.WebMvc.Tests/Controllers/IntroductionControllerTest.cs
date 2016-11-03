@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -199,29 +200,29 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Controllers
                     {
                         new ChartPieSlice()
                         {
-                            Label = uow.SkillCategoriesRepository.Find(1).Texts.First().Value,
+                            Label = uow.SkillCategoriesRepository.Find(1).Texts.GetText(CultureInfo.CurrentUICulture),
                             Color = "#4285f4",
                             Value = 2,
-                            ToolTip = uow.SkillCategoriesRepository.Find(1).Texts.First().Value,
+                            ToolTip = uow.SkillCategoriesRepository.Find(1).Texts.GetText(CultureInfo.CurrentUICulture),
                             Slices = new List<ChartPieSlice>()
                             {
                                 new ChartPieSlice()
                                 {
-                                    Label = uow.SkillsRepository.Find(1).Texts.First().Value,
+                                    Label = uow.SkillsRepository.Find(1).Texts.GetText(CultureInfo.CurrentUICulture),
                                     Color = "#4285f4",
                                     Value = uow.SkillsRepository.Find(1).KnowledgePercent,
                                     ToolTip =
-                                        uow.SkillsRepository.Find(1).Texts.First().Value + " " +
+                                        uow.SkillsRepository.Find(1).Texts.GetText(CultureInfo.CurrentUICulture) + " " +
                                         Utilities.GetGlyphiconStarsFromPercents(
                                             uow.SkillsRepository.Find(1).KnowledgePercent, 5)
                                 },
                                 new ChartPieSlice()
                                 {
-                                    Label = uow.SkillsRepository.Find(2).Texts.First().Value,
+                                    Label = uow.SkillsRepository.Find(2).Texts.GetText(CultureInfo.CurrentUICulture),
                                     Color = "#4285f4",
                                     Value = uow.SkillsRepository.Find(2).KnowledgePercent,
                                     ToolTip =
-                                        uow.SkillsRepository.Find(2).Texts.First().Value + " " +
+                                        uow.SkillsRepository.Find(2).Texts.GetText(CultureInfo.CurrentUICulture) + " " +
                                         Utilities.GetGlyphiconStarsFromPercents(
                                             uow.SkillsRepository.Find(2).KnowledgePercent, 5)
                                 },
@@ -229,29 +230,29 @@ namespace PresentationWebSite.UI.WebMvc.Tests.Controllers
                         },
                         new ChartPieSlice()
                         {
-                            Label = uow.SkillCategoriesRepository.Find(2).Texts.First().Value,
+                            Label = uow.SkillCategoriesRepository.Find(2).Texts.GetText(CultureInfo.CurrentUICulture),
                             Color = "#34a853",
                             Value = 2,
-                            ToolTip = uow.SkillCategoriesRepository.Find(2).Texts.First().Value,
+                            ToolTip = uow.SkillCategoriesRepository.Find(2).Texts.GetText(CultureInfo.CurrentUICulture),
                             Slices = new List<ChartPieSlice>()
                             {
                                 new ChartPieSlice()
                                 {
-                                    Label = uow.SkillsRepository.Find(3).Texts.First().Value,
+                                    Label = uow.SkillsRepository.Find(3).Texts.GetText(CultureInfo.CurrentUICulture),
                                     Color = "#34a853",
                                     Value = uow.SkillsRepository.Find(3).KnowledgePercent,
                                     ToolTip =
-                                        uow.SkillsRepository.Find(3).Texts.First().Value + " " +
+                                        uow.SkillsRepository.Find(3).Texts.GetText(CultureInfo.CurrentUICulture) + " " +
                                         Utilities.GetGlyphiconStarsFromPercents(
                                             uow.SkillsRepository.Find(3).KnowledgePercent, 5)
                                 },
                                 new ChartPieSlice()
                                 {
-                                    Label = uow.SkillsRepository.Find(4).Texts.First().Value,
+                                    Label = uow.SkillsRepository.Find(4).Texts.GetText(CultureInfo.CurrentUICulture),
                                     Color = "#34a853",
                                     Value = uow.SkillsRepository.Find(4).KnowledgePercent,
                                     ToolTip =
-                                        uow.SkillsRepository.Find(4).Texts.First().Value + " " +
+                                        uow.SkillsRepository.Find(4).Texts.GetText(CultureInfo.CurrentUICulture) + " " +
                                         Utilities.GetGlyphiconStarsFromPercents(
                                             uow.SkillsRepository.Find(4).KnowledgePercent, 5)
                                 },
