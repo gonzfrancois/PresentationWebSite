@@ -7,4 +7,4 @@ install:
   - nuget install nunit -OutputDirectory NUnit
 script:
   - xbuild /p:Configuration=Release ./src/PresentationWebSite.sln
-  - mono ./testrunner/NUnit/nunit-console/nunit3-console.exe ./src/PresentationWebSite.UI.WebMvc.Tests/bin/Release/PresentationWebSite.UI.WebMvc.Tests.dll
+  - mono ./NUnit/nunit-console/nunit3-console.exe ./src/PresentationWebSite.UI.WebMvc.Tests/bin/Release/PresentationWebSite.UI.WebMvc.Tests.dll
