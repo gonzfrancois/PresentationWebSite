@@ -25,7 +25,7 @@ namespace PresentationWebSite.UI.WebMvc.Tests.ExtensionsTests
         [Test]
         public void EqualsTest()
         {
-            var buffer1 = new byte[5];
+            var buffer1 = new byte[2];
             var buffer2 = new byte[1];
             const string cType1 = "image/jpeg";
             const string cType2 = "image/png";
