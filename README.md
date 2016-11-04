@@ -1,2 +1,2 @@
-# PresentationWebSite [![Build status](https://ci.appveyor.com/api/projects/status/vck0df477wjv075u?svg=true)](https://ci.appveyor.com/project/gonzfrancois/presentationwebsite)
+# PresentationWebSite [![Build status](https://ci.appveyor.com/api/projects/status/vck0df477wjv075u?svg=true)](https://ci.appveyor.com/project/gonzfrancois/presentationwebsite) [![Coverage Status](https://coveralls.io/repos/github/gonzfrancois/PresentationWebSite/badge.svg?branch=master)](https://coveralls.io/github/gonzfrancois/PresentationWebSite?branch=master)
 A personal presentation Web Application ASP.Net MVC based.
